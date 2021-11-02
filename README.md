@@ -12,3 +12,5 @@ minkä lisäksi *osa sanoista on kursivoitu*
 [gitlog.txt](https://github.com/kerkkanen/ot-harjoitustyo/blob/main/laskarit/gitlog.txt)
 
 muutos
+
+toinen muutos
