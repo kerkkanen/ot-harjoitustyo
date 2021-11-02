@@ -7,6 +7,6 @@
 Tässä tekstissä on **lihavoitua tekstiä**,
 minkä lisäksi *osa sanoista on kursivoitu*
 
-gitlog.txt
-(laskarit/gitlog.txt)
+https://github.com/kerkkanen/ot-harjoitustyo/blob/main/laskarit/komentorivi.txt
+[GitHub](http://github.com)
 
