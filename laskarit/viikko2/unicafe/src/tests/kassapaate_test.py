@@ -32,12 +32,7 @@ class TestKassapaate(unittest.TestCase):
 
     def test_ei_riittavasti_rahaa_ostaa_edullista(self):
         self.kassa.syo_edullisesti_kateisella(200)
-        self.assertEqual(self.kassa.kassassa_rahaa, 100000)
-        self.assertEqual(self.kassa.syo_edullisesti_kateisella(200), 200)
-        self.assertEqual(self.kassa.edulliset, 0)
-
-    def test_ei_riittavasti_rahaa_ostaa_maukasta(self):
-        self.kassa.syo_maukkaasti_kateisella(300)
+      txt   self.kassa.syo_maukkaasti_kateisella(300)
         self.assertEqual(self.kassa.kassassa_rahaa, 100000)
         self.assertEqual(self.kassa.syo_maukkaasti_kateisella(300), 300)
         self.assertEqual(self.kassa.maukkaat, 0)
