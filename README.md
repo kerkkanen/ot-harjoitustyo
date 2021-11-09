@@ -11,6 +11,4 @@ minkä lisäksi *osa sanoista on kursivoitu*
 
 [gitlog.txt](https://github.com/kerkkanen/ot-harjoitustyo/blob/main/laskarit/viikko1/gitlog.txt)
 
-muutos
-
-toinen muutos
+[sovelluksen vaativuusmäärittely](https://github.com/kerkkanen/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
