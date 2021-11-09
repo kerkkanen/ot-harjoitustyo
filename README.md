@@ -4,8 +4,7 @@
 
 ### Viikko 1
 
-Tässä tekstissä on **lihavoitua tekstiä**,
-minkä lisäksi *osa sanoista on kursivoitu*
+Tässä on **lihavoitua tekstiä**, minkä lisäksi *osa sanoista on kursivoitu*
 
 [komentorivi.txt](https://github.com/kerkkanen/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
 
