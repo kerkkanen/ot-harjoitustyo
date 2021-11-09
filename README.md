@@ -12,4 +12,4 @@ Tässä on **lihavoitua tekstiä**, minkä lisäksi *osa sanoista on kursivoitu*
 
 [sovelluksen vaatimusmäärittely](https://github.com/kerkkanen/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
 
-[työaikakirjanpito] (https://github.com/kerkkanen/ot-harjoitustyo/blob/main/kirjanpito.md)
+[työaikakirjanpito](https://github.com/kerkkanen/ot-harjoitustyo/blob/main/kirjanpito.md)
