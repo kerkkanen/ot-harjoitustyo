@@ -16,3 +16,6 @@ class Maksukortti:
         saldo_euroissa = round(self.saldo / 100, 2)
 
         return f"saldo: {saldo_euroissa}"
+
+kortti = Maksukortti(1000)
+print(kortti)
