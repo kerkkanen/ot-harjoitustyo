@@ -13,7 +13,6 @@ Sovelluksella on ainoastaan yksi käyttäjärooli eli *normaali käyttäjä*.
 Sovellus koostuu kolmesta eri näkymästä.
 
 ![Pelin näkymä](nakyma.png)
-Format: ![Alt Text](url)
 
 Pelin alkunäkymässä syötetään pelaajan nimimerkki ja valitaan vaikeustaso. Pelinäkymässä näkyviin tulee maa ja vastausvaihtoehdot. Pelin päätyttyä näkyviin tulee pistetilasto.
 
