@@ -12,7 +12,7 @@ Sovelluksella on ainoastaan yksi käyttäjärooli eli *normaali käyttäjä*.
 
 Sovellus koostuu kolmesta eri näkymästä.
 
-![Pelin näkymä](näkymä.pdf)
+![Pelin näkymä](nakyma.png)
 Format: ![Alt Text](url)
 
 Pelin alkunäkymässä syötetään pelaajan nimimerkki ja valitaan vaikeustaso. Pelinäkymässä näkyviin tulee maa ja vastausvaihtoehdot. Pelin päätyttyä näkyviin tulee pistetilasto.
@@ -47,6 +47,6 @@ Pelin alkunäkymässä syötetään pelaajan nimimerkki ja valitaan vaikeustaso.
     * pelaajalla on kolme elämää, joista väärä vastaus vähentää yhden
     * peli päättyy, kun kaikki elämät on käytetty
 * Skippaa-toiminto
-    * pelaa voi hypätä maan yli kerran skippaustoiminnolla ilman että peli päättyy/menettää elämän
+    * pelaaja voi hypätä maan yli kerran skippaustoiminnolla ilman että peli päättyy/menettää elämän
 * Alueiden valinta
     * kysyttäviä maita voi rajata esim. maanosan mukaan
