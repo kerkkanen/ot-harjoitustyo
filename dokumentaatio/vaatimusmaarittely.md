@@ -28,8 +28,8 @@ Pelin alkunäkymässä syötetään pelaajan nimimerkki ja valitaan vaikeustaso.
 
 * Pelinäkymässä näkyviin tulee maa, jonka pääkaupunkia kysytään
     * pelaaja klikkaa mielestään oikeaa vaihtoehtoa
-    * oikeata vastauksesta saa pisteitä
-    * pelin ensimmäisesäs versiossa peli päättyy väärästä vastauksesta
+    * oikeasta vastauksesta saa pisteitä
+    * pelin ensimmäisessä versiossa peli päättyy väärästä vastauksesta
 
 * Pelin päätyttyä näkyviin tulee pistetilasto
     * listaus näyttää kymmenen parasta pelaajaa pisteineen
