@@ -53,9 +53,8 @@ class Game:
     
     @capital.setter
     def capital(self, capital):
-        self._capital = capital
+        self._capital = capital    
     
-    @property
     def other_capitals(self):
         self._capital_options.append(self._capital)
         random.shuffle(self._capital_options)

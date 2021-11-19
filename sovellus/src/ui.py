@@ -20,7 +20,7 @@ class UI:
         print()
         for i in range(5):
             game.create_question()
-            print(f"Mikä on maan {game.country()} pääkaupunki?")
+            print(f"Mikä on maan {game.country} pääkaupunki?")
             
             print()           
             for capital in game.other_capitals():
@@ -31,7 +31,7 @@ class UI:
             if game.check_capital(vastaus):
                 print("Oikein!")
             else:
-                print(f"Väärin! Oikea vastaus on {game.capital()}")
+                print(f"Väärin! Oikea vastaus on {game.capital}")
                 print()
 
         print(f"Pelaajan {player.name()} pisteet: {player.score()}")
