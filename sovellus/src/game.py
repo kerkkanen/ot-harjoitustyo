@@ -39,12 +39,23 @@ class Game:
             country = self._country_list[list.pop(0)]
             self._capital_options.append(self._countries_n_capitals[country])
     
+    @property
     def country(self):
         return self._country
 
+    @country.setter
+    def country(self, country):
+        self._country = country
+
+    @property
     def capital(self):
         return self._countries_n_capitals[self._country]    
     
+    @capital.setter
+    def capital(self, capital):
+        self._capital = capital
+    
+    @property
     def other_capitals(self):
         self._capital_options.append(self._capital)
         random.shuffle(self._capital_options)

@@ -14,4 +14,4 @@ def coverage_report(ctx):
 
 @task
 def test(ctx):
-    ctx.run("pytest src/index.py")
+    ctx.run("pytest src")
