@@ -13,20 +13,24 @@ Pelin avulla voi harjoitella maailman maiden pääkaupunkeja.
 
 Ohjelman pystyy suorittamaan komennolla:
 
-{poetry run invoke start}
+```
+poetry run invoke start
+```
 
 ### Testaus
 
 Testit suoritetaan komennolla:
 
+```
 poetry run invoke test
-
+```
 ### Testikattavuus
 
 Testikattavuuden voi generoida komennolla:
 
+```
 poetry run invoke coverage-report
-
+```
 Raportti generoituu htmlcov-hakemistoon
 
 
