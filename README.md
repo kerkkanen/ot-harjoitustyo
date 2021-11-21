@@ -1,15 +1,33 @@
-# Ohjelmistotekniikka
+# Pääkaupunkipeli
 
-## Tehtävät
+Pelin avulla voi harjoitella maailman maiden pääkaupunkeja.
 
-### Viikko 1
+## Dokumentaatio
 
-Tässä on **lihavoitua tekstiä**, minkä lisäksi *osa sanoista on kursivoitu*
+* [Vaatimusmäärittely](https://github.com/kerkkanen/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
+* [Työaikakirjanpito](https://github.com/kerkkanen/ot-harjoitustyo/blob/main/dokumentaatio/kirjanpito.md)
 
-[komentorivi.txt](https://github.com/kerkkanen/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
+## Komentorivitoiminnot
 
-[gitlog.txt](https://github.com/kerkkanen/ot-harjoitustyo/blob/main/laskarit/viikko1/gitlog.txt)
+### Ohjelman suorittaminen
 
-[sovelluksen vaatimusmäärittely](https://github.com/kerkkanen/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
+Ohjelman pystyy suorittamaan komennolla:
 
-[työaikakirjanpito](https://github.com/kerkkanen/ot-harjoitustyo/blob/main/dokumentaatio/kirjanpito.md)
+poetry run invoke start
+
+### Testaus
+
+Testit suoritetaan komennolla:
+
+poetry run invoke test
+
+### Testikattavuus
+
+Testikattavuuden voi generoida komennolla:
+
+poetry run invoke coverage-report
+
+Raportti generoituu htmlcov-hakemistoon
+
+
+
