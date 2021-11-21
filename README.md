@@ -13,7 +13,7 @@ Pelin avulla voi harjoitella maailman maiden pääkaupunkeja.
 
 Ohjelman pystyy suorittamaan komennolla:
 
-poetry run invoke start
+{poetry run invoke start}
 
 ### Testaus
 
