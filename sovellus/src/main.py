@@ -2,13 +2,14 @@ from ui import UI
 import tkinter as tk
 
 def main():    
-    window = tk.Tk()
-    window.title("Pääkaupunkipeli")
+    #window = tk.Tk()
+    #window.title("Pääkaupunkipeli")
+    
 
-    ui = UI(window)   
-    ui.start()
-
-    window.mainloop()
+    #ui = UI(window)   
+    ui = UI()
+    
+    #window.mainloop()
    
 
 
