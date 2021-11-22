@@ -1,16 +1,14 @@
 from ui import UI
-from tkinter import Tk, ttk
+import tkinter as tk
 
-def main():
-    #window = Tk()
-    #window.title("Pääkaupunkipeli")dd
-    
-    #ui.start()
-    #window.mainloop()
-    
+def main():    
+    window = tk.Tk()
+    window.title("Pääkaupunkipeli")
 
-    ui = UI()
-    ui.txt_ui()
+    ui = UI(window)   
+    ui.start()
+
+    window.mainloop()
    
 
 

@@ -1,16 +1,26 @@
 from game import Game
 from player import Player
-from tkinter import Tk, ttk
+import tkinter as tk
 
 
 class UI:
 
     def __init__(self, root):
         self._root = root
-        
 
-    def __init__(self):        
-        pass
+    def start(self):
+        label = tk.Label(
+            master=self._root,            
+            text="Syötä nimimerkki",
+            foreground="black",
+            background="orange",
+            width=120,
+            height=40
+        )
+        label.pack()
+
+   # def __init__(self):        
+    #    pass
 
     def txt_ui(self):
         name = input("Syötä nimimerkki: ")
