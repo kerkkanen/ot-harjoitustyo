@@ -3,7 +3,8 @@ from tkinter import Tk, ttk
 
 def main():
     #window = Tk()
-    #window.title("Pääkaupunkipeli")
+    #window.title("Pääkaupunkipeli")dd
+    
     #ui.start()
     #window.mainloop()
     

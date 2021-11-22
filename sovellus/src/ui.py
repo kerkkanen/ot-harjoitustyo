@@ -20,8 +20,9 @@ class UI:
         print()
         for i in range(5):
             game.create_question()
-            print(f"Mikä on maan {game.country} pääkaupunki?")
-            
+            print("??????????????????????????????????????????????????")
+            print(f"Mikä on maan {game.country} pääkaupunki  ")
+            print("??????????????????????????????????????????????????")
             print()           
             for capital in game.other_capitals():
                 print(capital)
@@ -29,12 +30,17 @@ class UI:
             vastaus = input("Vastaus ")
             print()
             if game.check_capital(vastaus):
-                print("Oikein!")
+                print("***************")
+                print("**  Oikein!  **")
+                print("***************")
+                print()
             else:
+                print("---------------------------------------------")
                 print(f"Väärin! Oikea vastaus on {game.capital}")
+                print("---------------------------------------------")
                 print()
 
-        print(f"Pelaajan {player.name()} pisteet: {player.score()}")
+        print(f"Pelaajan {player.name()} pisteet: ***{player.score()}***")
         
 
     def highscore_view(self):
