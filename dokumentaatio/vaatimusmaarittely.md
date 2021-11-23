@@ -41,7 +41,7 @@ Pelin alkunäkymässä syötetään pelaajan nimimerkki ja valitaan vaikeustaso.
 * Vaikeustason variantit
     * peli ei tarjoa vastausvaihtoehtoja, vaan käyttäjän täytyy kirjoittaa pääkaupunki itse
 * Ajan kuluminen
-    *jos pelaaja ei vastaa kuluvan ajan puitteissa, peli päättyy
+    * jos pelaaja ei vastaa kuluvan ajan puitteissa, peli päättyy
 * Elämät
     * pelaajalla on kolme elämää, joista väärä vastaus vähentää yhden
     * peli päättyy, kun kaikki elämät on käytetty
