@@ -16,6 +16,7 @@ Ohjelman pystyy suorittamaan komennolla:
 ```
 poetry run invoke start
 ```
+Tällä hetkellä sovelluksessa on käytössä tektstikäyttöliittymä, jonka avulla pelin perustoiminnallisuutta voi testata.
 
 ### Testaus
 
