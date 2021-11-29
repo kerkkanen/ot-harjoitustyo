@@ -9,3 +9,6 @@ Päivä | Aika | Mitä tein
 22.11.|   1  | Testausta laitoksen koneella ja ojelmoinnin opettelua graafista käyttöliittymää varten
 23.11.|   4  | Pylintin käyttöönotto, graafisen liittymän tekemistä
 24.11.|   4  | Käyttöliittymän ja sovelluslogiian eriyttämistä sekä käyttöliittymän rakentamista
+26.11.|   2  | Kooditiedostojen eriyttämistä omiin kansioihin, käyttöliittymän ja sovelluslogiikan eriyttämisen pohtimista
+29.11.|   2  | Pakkauskaavio arkkitehtuuriin, koodin päivitystä, READMEn päivitytstä
+
