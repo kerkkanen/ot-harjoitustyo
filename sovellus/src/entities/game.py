@@ -67,4 +67,3 @@ class Game:
             self._player.add_score(50)
             return True
         return False
-

@@ -24,7 +24,6 @@ class StartView:
         player = Player(name)
         game = Game(player, 3)
 
-
     def _initialize(self):
         self._frame = tk.Frame(master=self._root)
 
@@ -84,7 +83,7 @@ class StartView:
             width=15,
             height=5,
             background="white",
-            foreground="black",            
+            foreground="black",
             command=self._handle_show_create_game_view
         )
 

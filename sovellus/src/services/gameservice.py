@@ -14,10 +14,10 @@ class GameService:
         self._game.create_question()
 
     def country(self):
-        return self._game.country()
+        return self._game.country
 
     def capital(self):
-        return self._game.capital()
+        return self._game.capital
 
     def capital_options(self):
         for option in self._game.other_capitals():

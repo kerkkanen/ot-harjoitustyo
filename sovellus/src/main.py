@@ -3,8 +3,9 @@ from ui.ui import UI
 
 
 def main():
-    
-    print("Käytetäänkö tekstikäyttöliittymää, vai tarkastellaanko tulevan graafisen liittymän ominaisuuksia?")
+
+    print("Käytetäänkö tekstikäyttöliittymää,")
+    print("vai tarkastellaanko tulevan graafisen liittymän ominaisuuksia?")
     while True:
         answer = input("t=teksti, g=graafinen l=lopeta\n")
         if answer == "l":
@@ -21,7 +22,7 @@ def main():
             user_interface = UI(window)
             user_interface.start()
             window.mainloop()
-        
+
     print("Heippa!")
 
 

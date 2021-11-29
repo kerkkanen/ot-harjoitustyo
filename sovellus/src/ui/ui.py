@@ -5,7 +5,6 @@ from entities.game import Game
 from entities.player import Player
 
 
-
 class UI:
 
     # def __init__(self):
@@ -14,7 +13,6 @@ class UI:
     def __init__(self, root):
         self._root = root
         self._current_view = None
-        
 
     def start(self):
         self._show_start_view()
@@ -60,12 +58,13 @@ class UI:
         self._current_view.pack()
 
     def txt_ui(self):
-        while True:            
+        while True:
             answer = input("Pelaa (1) tai lopeta (2)")
             if answer == "2":
                 break
             while True:
-                name = input("Syötä nimimerkki (nimimerkki ei voi olla tyhjä):\n")
+                name = input(
+                    "Syötä nimimerkki (nimimerkki ei voi olla tyhjä):\n")
                 if len(name) > 0:
                     break
             rounds = 0
@@ -77,9 +76,10 @@ class UI:
                 if 1 <= answer <= 10:
                     rounds = answer
                     break
-            level = 0            
+            level = 0
             while True:
-                diff = input("Valitse vaikeustaso: helppo(h), keskitaso(k), vaikea(v)\n")
+                diff = input(
+                    "Valitse vaikeustaso: helppo(h), keskitaso(k), vaikea(v)\n")
                 if diff == "h":
                     level = 2
                     break
@@ -91,7 +91,8 @@ class UI:
                     break
             player = Player(name)
             game = Game(player, level)
-            print(f"Pelataan {rounds} kierrosta. Oikeasta vastauksesta saat 50 pistettä, väärästä 0.")
+            print(
+                f"Pelataan {rounds} kierrosta. Oikeasta vastauksesta saat 50 pistettä, väärästä 0.")
             print()
             for i in range(1, rounds+1):
                 print(f"Kierros {i}")

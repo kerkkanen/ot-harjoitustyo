@@ -2,21 +2,21 @@ import tkinter as tk
 from services.gameservice import GameService
 from tkinter import constants
 
+
 class GameView:
 
     def __init__(self, root, handle_show_score_view):
         self._root = root
         self._handle_show_score_view = handle_show_score_view
-        #self._handle_start_game()
+        # self._handle_start_game()
         self._frame = None
-        
-        
+
         self._initialize()
 
     def _handle_start_game(self):
         #game = Game(Player("Kisu"), 3)
         pass
-    
+
     def pack(self):
         self._frame.pack(fill=constants.X)
 
@@ -58,7 +58,7 @@ class GameView:
             height=5,
             background="white",
             foreground="black",
-            #command=self._handle_show_score_view
+            # command=self._handle_show_score_view
         )
 
         nd_button = tk.Button(
@@ -78,7 +78,7 @@ class GameView:
             height=5,
             background="white",
             foreground="black",
-            #command=self._handle_show_score_view
+            # command=self._handle_show_score_view
         )
 
         bg_label.grid(row=0, column=2, columnspan=4, rowspan=4)
