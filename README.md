@@ -6,6 +6,23 @@ Pelin avulla voi harjoitella maailman maiden pääkaupunkeja.
 
 * [Vaatimusmäärittely](https://github.com/kerkkanen/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
 * [Työaikakirjanpito](https://github.com/kerkkanen/ot-harjoitustyo/blob/main/dokumentaatio/kirjanpito.md)
+* [Arkkitehtuuri] (https://github.com/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.md)
+
+## Asennus
+
+1. Aseta riippuvuudet komennolla:
+
+```
+poetry install
+
+```
+
+2. Suorita vaadittavat aloitustoimenpiteet komennolla:
+
+```
+poetry run invoke build
+
+```
 
 ## Komentorivitoiminnot
 

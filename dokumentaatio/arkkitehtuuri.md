@@ -1,1 +1,1 @@
-![Pakkauskaavio](home/pictures/pakkauskaavio.png)
+![Pakkauskaavio](pakkauskaavio.png)
