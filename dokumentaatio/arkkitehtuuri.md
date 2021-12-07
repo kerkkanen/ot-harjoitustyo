@@ -1,2 +1,3 @@
-[Pakkauskaavio](pakkauskaavio.png)
-[Sekvenssikaavio](sekvenssikaavio.png)
+* [Pakkauskaavio](pakkauskaavio.png)
+
+* [Sekvenssikaavio](sekvenssikaavio.png)
