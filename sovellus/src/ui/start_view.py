@@ -12,7 +12,7 @@ class StartView:
         self._var = 3
         self._player_name_entry = None
         self._player_name = "Pelaaja 1"
-        self._level = None
+        self._level = 3
 
         self._initialize()
 
