@@ -4,7 +4,7 @@ Pelin avulla voi harjoitella maailman maiden pääkaupunkeja.
 
 ## 1-release
 
-* [1-release](https://github.com/kerkkanen/ot-harjoitustyo/releases)
+* [1-release](https://github.com/kerkkanen/ot-harjoitustyo/releases/tag/viikko5)
 
 ## Dokumentaatio
 
@@ -29,7 +29,7 @@ Ohjelman pystyy suorittamaan komennolla:
 ```
 poetry run invoke start
 ```
-Sovelluksessa on graafinen käyttöliittymä, joka tällä hetkellä tosin sulkeudu aina täysin oikein...
+Sovelluksessa on graafinen käyttöliittymä, joka tällä hetkellä ei tosin sulkeudu aina täysin oikein...
 
 ### Testaus
 
