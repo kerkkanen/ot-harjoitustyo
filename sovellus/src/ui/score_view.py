@@ -23,9 +23,7 @@ class ScoreView:
 
         label = tk.Label(
             master=self._frame,
-            text="Highscore",
-            foreground="green",
-            background="red",
+            background="green",
             width=120,
             height=40
         )

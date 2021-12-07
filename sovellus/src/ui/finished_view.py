@@ -5,12 +5,12 @@ from services.gameservice import GameService
 
 class FinishedView:
 
-    def __init__(self, root, handle_show_score_view, handle_show_start_view):
+    def __init__(self, root, handle_show_score_view, handle_show_start_view, game):
         self._root = root
         self._handle_show_score_view = handle_show_score_view
         self._handle_show_start_view = handle_show_start_view
         self._frame = None
-        self._game = "game"
+        self._game = game
 
         self._initialize()
 
@@ -23,13 +23,20 @@ class FinishedView:
     def _initialize(self):
         self._frame = tk.Frame(master=self._root)
 
-        label = tk.Label(
+        bg_label = tk.Label(
             master=self._frame,
-            text="Highscore",
-            foreground="green",
-            background="red",
+            background="green",
             width=120,
-            height=40
+            height=45
+        )
+
+        info_label = tk.Label(
+            master=self._frame,
+            text=f"Pelaajan {self._game.player_name()} pisteet:\n {self._game.player_score()}",
+            foreground="black",
+            background="orange",
+            width=50,
+            height=10
         )
 
         button = tk.Button(
@@ -42,5 +49,6 @@ class FinishedView:
             command=self._handle_show_start_view
         )
 
-        label.grid(row=5, column=0)
-        button.grid(row=5, column=0)
+        bg_label.grid(row=0, column=0, columnspan=5, rowspan=6)
+        info_label.grid(row=2, column=2)
+        button.grid(row=4, column=2)

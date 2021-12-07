@@ -1,20 +1,20 @@
 import tkinter as tk
 from tkinter import *
-from tkinter import messagebox
+from tkinter import constants, messagebox
+
 from services.gameservice import GameService
-from tkinter import constants
 
 
 class NormalGameView:
 
-    def __init__(self, root, handle_check_answer_view, own_view, game):
+    def __init__(self, root, handle_show_finished_view, game):
         self._root = root
-        self._handle_check_answer_view = handle_check_answer_view
-        self._own_view = own_view
+        self._handle_show_finished_view = handle_show_finished_view
         self._frame = None
         self._game = game
 
         self._box = messagebox
+        self._end_box = messagebox
 
         self._country = StringVar()
         self._first_option = StringVar()
@@ -25,7 +25,7 @@ class NormalGameView:
         self._ans_two = None
         self._ans_three = None
 
-        self._rounds = 10
+        self._rounds = 3
 
         self._initialize()
 
@@ -36,7 +36,7 @@ class NormalGameView:
         self._frame.destroy()
 
     def _run_game(self):
-        self._rounds -= 1
+
         self._game.create_question()
 
         self._ans_one = self._game.option()
@@ -108,7 +108,7 @@ class NormalGameView:
             foreground="black",
             command=self._select_rd_answer
         )
-        
+
         bg_label.grid(row=0, column=2, columnspan=4, rowspan=4)
         name_label.grid(row=0, column=2, columnspan=4,
                         pady=45, sticky=constants.N)
@@ -118,39 +118,34 @@ class NormalGameView:
         nd_button.grid(row=2, column=2, columnspan=4)
         rd_button.grid(row=3, column=2, columnspan=4)
 
-    def _handle_finished_view(self):
-        pass
-
     def _select_st_answer(self):
-
-        if self._game.check_capital(self._ans_one):
-            res = self._box.askquestion("Oikein", "Hienoa!\n\nJatketaanko?")
-            if res == "yes":
-                self._initialize()
-        else:
-            res = self._box.askquestion(
-                "Väärin", f"Oikea vastaus on {self._game.capital()}\n\nJatketaanko?")
-            if res == "yes":
-                self._initialize()
+        self._feedback_message(self._game.check_capital(self._ans_one))
 
     def _select_nd_answer(self):
-        if self._game.check_capital(self._ans_two):
-            res = self._box.askquestion("Oikein", "Hienoa!\n\nJatketaanko?")
-            if res == "yes":
-                self._initialize()
-        else:
-            res = self._box.askquestion(
-                "Väärin", f"Oikea vastaus on {self._game.capital()}\n\nJatketaanko?")
-            if res == "yes":
-                self._initialize()
+        self._feedback_message(self._game.check_capital(self._ans_two))
 
     def _select_rd_answer(self):
-        if self._game.check_capital(self._ans_three):
-            res = self._box.askquestion("Oikein", "Hienoa!\n\nJatketaanko?")
-            if res == "yes":
-                self._initialize()
+        self._feedback_message(self._game.check_capital(self._ans_three))
+
+    def _feedback_message(self, answer):
+        if answer:
+            click = self._box.askquestion("Oikein", "Hienoa!\n\nJatketaanko?")
+            self._box_click(click)
         else:
-            res = self._box.askquestion(
+            click = self._box.askquestion(
                 "Väärin", f"Oikea vastaus on {self._game.capital()}\n\nJatketaanko?")
-            if res == "yes":
-                self._initialize()
+            self._box_click(click)
+
+    def _box_click(self, clicked):
+        if clicked == "no":
+            self._end()
+        if clicked == "yes":
+            self._initialize()
+
+    def _end(self):
+        self._end_box.showinfo("Heippa!", "Peli päättyy.")
+        self._handle_finished_view()
+
+    def _handle_finished_view(self):
+
+        self._handle_show_finished_view(self._game)

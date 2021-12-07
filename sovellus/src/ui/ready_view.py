@@ -78,4 +78,10 @@ class ReadyView:
 
     def _start(self):
         game = GameService(self._game_level, self._player_name)
-        self._handle_show_normal_game_view(game)
+
+        if self._game_level == 2:
+            self._handle_show_easy_game_view(game)
+        elif self._game_level == 3:
+            self._handle_show_normal_game_view(game)
+        else:
+            self._handle_show_hard_game_view(game)

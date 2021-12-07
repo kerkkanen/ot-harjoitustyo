@@ -12,7 +12,7 @@ class StartView:
         self._var = 3
         self._player_name_entry = None
         self._player_name = "Pelaaja 1"
-        self._level = 3
+        self._level = None
 
         self._initialize()
 
@@ -51,7 +51,7 @@ class StartView:
 
         instr_label = tk.Label(
             master=self._frame,
-            text="Vaikeustaso määrittää vastausvaihtoehtojen määrän:\nhelppo:2 normaali:3 vaikea: 5",
+            text="Valitse vastausvaihtoehtojen määrä:",
             foreground="black",
             background="orange",
             width=50,
@@ -60,7 +60,7 @@ class StartView:
 
         option_easy = tk.Radiobutton(
             master=self._frame,
-            text="Helppo",
+            text="2",
             variable=self._var,
             value=2,
             width=20,
@@ -72,7 +72,7 @@ class StartView:
 
         option_normal = tk.Radiobutton(
             master=self._frame,
-            text="Normaali",
+            text="3",
             variable=self._var,
             value=3,
             width=20,
@@ -84,9 +84,9 @@ class StartView:
 
         option_hard = tk.Radiobutton(
             master=self._frame,
-            text="Vaikea",
+            text="6",
             variable=self._var,
-            value=5,
+            value=6,
             width=20,
             height=5,
             background="#000fff000",
@@ -99,7 +99,7 @@ class StartView:
             text="Valmista",
             width=15,
             height=5,
-            background="#000fff000",
+            background="grey",
             foreground="black",
             command=self._confirm
         )
@@ -114,7 +114,7 @@ class StartView:
         button.grid(row=5, column=2, columnspan=1, pady=40)
 
     def _select(self):
-        self._level = str(self._var.get())
+        self._level = int(self._var.get())
 
     def _confirm(self):
         if self._player_name_entry.get() != "":

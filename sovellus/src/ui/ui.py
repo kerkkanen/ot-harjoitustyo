@@ -4,7 +4,6 @@ from ui.ready_view import ReadyView
 from ui.easy_game_view import EasyGameView
 from ui.normal_game_view import NormalGameView
 from ui.hard_game_view import HardGameView
-from ui.check_answer_view import CheckAnswerView
 from ui.finished_view import FinishedView
 from services.gameservice import GameService
 
@@ -56,8 +55,7 @@ class UI:
 
         self._current_view = EasyGameView(
             self._root,
-            self._show_check_answer_view,
-            self._show_easy_game_view,
+            self._show_finished_view,
             game
         )
 
@@ -68,8 +66,7 @@ class UI:
 
         self._current_view = NormalGameView(
             self._root,
-            self._show_check_answer_view,
-            self._show_normal_game_view,
+            self._show_finished_view,
             game
         )
 
@@ -80,33 +77,20 @@ class UI:
 
         self._current_view = HardGameView(
             self._root,
-            self._show_check_answer_view,
-            self._show_hard_game_view,
+            self._show_finished_view,
             game
         )
 
         self._current_view.pack()
 
-    def _show_check_answer_view(self, return_view, answer):
-        self._hide_current_view()
-
-        self._current_view = CheckAnswerView(
-            self._root,
-            self._show_finished_view,
-            return_view,
-            answer
-        )
-
-        self._current_view.pack()
-
-    def _show_finished_view(self):
+    def _show_finished_view(self, game):
         self._hide_current_view()
 
         self._current_view = FinishedView(
             self._root,
-            self._show_finished_view,
             self._show_score_view,
-            self._show_start_view
+            self._show_start_view,
+            game
         )
 
         self._current_view.pack()
