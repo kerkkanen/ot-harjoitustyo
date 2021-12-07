@@ -22,18 +22,18 @@ Pelin alkunäkymässä syötetään pelaajan nimimerkki ja valitaan vaikeustaso.
 
 ### Sovelluksen käynnistyessä
 
-* Pelaaja syöttää nimimerkin ja valitsee vaikeustason
+* Pelaaja syöttää nimimerkin ja valitsee vaikeustason "tehty"
     * nimimerkin on oltava vähintään yhden merkin pituinen
-    * ainakin pelin ensimmäisessä versiossa vaikeustasovalinta säätelee vastausvaihtoehtojen määrää
+    * ainakin pelin ensimmäisessä versiossa vaikeustasovalinta säätelee vastausvaihtoehtojen määrää "tehty"
 
-* Pelinäkymässä näkyviin tulee maa, jonka pääkaupunkia kysytään
-    * pelaaja klikkaa mielestään oikeaa vaihtoehtoa
-    * oikeasta vastauksesta saa pisteitä
+* Pelinäkymässä näkyviin tulee maa, jonka pääkaupunkia kysytään "tehty"
+    * pelaaja klikkaa mielestään oikeaa vaihtoehtoa "tehty"
+    * oikeasta vastauksesta saa pisteitä "tehty"
     * pelin ensimmäisessä versiossa peli päättyy väärästä vastauksesta
 
 * Pelin päätyttyä näkyviin tulee pistetilasto
     * listaus näyttää kymmenen parasta pelaajaa pisteineen
-    * pelin voi sulkea tai pelata uudestaan
+    * pelin voi sulkea tai pelata uudestaan "tehty"
 
 
 ## Jatkokehitysideoita

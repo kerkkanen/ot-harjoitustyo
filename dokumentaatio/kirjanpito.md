@@ -14,4 +14,6 @@ Päivä | Aika | Mitä tein
 30.11.|   3  | Sovelluksen luokkien refaktorointia: reposotporioiden luomista ja logiikan erottelua käyttöliittymästä
 1.12. |   2  | Sovelluslogiikan liittämistä käyttöliittymään
 6.12. |   6  | Toiminnaliisuden kytkemistä käyttöliittymään, testien tekoa ja vanhojen testien refaktorointia
-Yhteensä 31 tuntia
+7.12. |   7  | Sekvenssikaavion teko, toiminnallisuuden rakentelua käyttöliittymään, vaikeustasojen rakentaminen, releasen teko
+
+Yhteensä 37 tuntia

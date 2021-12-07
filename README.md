@@ -2,6 +2,10 @@
 
 Pelin avulla voi harjoitella maailman maiden pääkaupunkeja.
 
+## 1-release
+
+* [1-release](https://github.com/kerkkanen/ot-harjoitustyo/releases)
+
 ## Dokumentaatio
 
 * [Vaatimusmäärittely](https://github.com/kerkkanen/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
@@ -10,16 +14,10 @@ Pelin avulla voi harjoitella maailman maiden pääkaupunkeja.
 
 ## Asennus
 
-1. Aseta riippuvuudet komennolla:
+1. Aseta riippuvuudet sovellus-kansiossa komennolla:
 
 ```
 poetry install
-```
-
-2. Suorita vaadittavat aloitustoimenpiteet komennolla:
-
-```
-poetry run invoke build
 ```
 
 ## Komentorivitoiminnot
@@ -31,7 +29,7 @@ Ohjelman pystyy suorittamaan komennolla:
 ```
 poetry run invoke start
 ```
-Tällä hetkellä sovelluksessa on käytössä tekstikäyttöliittymä, jonka avulla pelin perustoiminnallisuutta voi testata.
+Sovelluksessa on graafinen käyttöliittymä, joka tällä hetkellä tosin sulkeudu aina täysin oikein...
 
 ### Testaus
 
