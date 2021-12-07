@@ -3,7 +3,7 @@ from services.gameservice import GameService
 from tkinter import constants
 
 
-class NormalGameView:
+class EasyGameView:
 
     def __init__(self, root, handle_show_score_view):
         self._root = root

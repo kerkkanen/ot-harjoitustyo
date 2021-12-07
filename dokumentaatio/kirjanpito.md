@@ -11,5 +11,7 @@ Päivä | Aika | Mitä tein
 24.11.|   4  | Käyttöliittymän ja sovelluslogiikan eriyttämistä sekä käyttöliittymän rakentamista
 26.11.|   2  | Kooditiedostojen eriyttämistä omiin kansioihin, käyttöliittymän ja sovelluslogiikan eriyttämisen pohtimista
 29.11.|   2  | Pakkauskaavio arkkitehtuuriin, koodin päivitystä, READMEn päivitytstä
-
-Yhteensä 20 tuntia
+30.11.|   3  | Sovelluksen luokkien refaktorointia: reposotporioiden luomista ja logiikan erottelua käyttöliittymästä
+1.12. |   2  | Sovelluslogiikan liittämistä käyttöliittymään
+6.12. |   6  | Toiminnaliisuden kytkemistä käyttöliittymään, testien tekoa ja vanhojen testien refaktorointia
+Yhteensä 31 tuntia

@@ -1,15 +1,18 @@
 import tkinter as tk
-from tkinter import PhotoImage, constants
+from tkinter import constants
+from tkinter import *
 from services.gameservice import GameService
 
 
 class StartView:
-    def __init__(self, root, handle_show_create_game_view):
+    def __init__(self, root, handle_show_ready_view):
         self._root = root
-        self._handle_show_create_game_view = handle_show_create_game_view
+        self._handle_show_ready_view = handle_show_ready_view
         self._frame = None
+        self._var = 3
         self._player_name_entry = None
-        self._level = None
+        self._player_name = "Pelaaja 1"
+        self._level = 3
 
         self._initialize()
 
@@ -19,13 +22,9 @@ class StartView:
     def destroy(self):
         self._frame.destroy()
 
-    def _game_handler(self):
-        name = self._player_name_entry.get()
-        player = Player(name)
-        game = Game(player, 3)
-
     def _initialize(self):
         self._frame = tk.Frame(master=self._root)
+        self._var = IntVar()
 
         bg_label = tk.Label(
             master=self._frame,
@@ -38,7 +37,7 @@ class StartView:
             master=self._frame,
             text="Syötä nimimerkki",
             foreground="black",
-            background="green",
+            background="orange",
             width=20,
             height=5
         )
@@ -50,47 +49,74 @@ class StartView:
             width=30
         )
 
+        instr_label = tk.Label(
+            master=self._frame,
+            text="Vaikeustaso määrittää vastausvaihtoehtojen määrän:\nhelppo:2 normaali:3 vaikea: 5",
+            foreground="black",
+            background="orange",
+            width=50,
+            height=5
+        )
+
         option_easy = tk.Radiobutton(
             master=self._frame,
             text="Helppo",
-            width=10,
+            variable=self._var,
+            value=2,
+            width=20,
             height=5,
-            background="orange",
+            background="#000fff000",
             foreground="black",
+            command=self._select
         )
 
         option_normal = tk.Radiobutton(
             master=self._frame,
-            text="Keskitaso",
-            width=10,
+            text="Normaali",
+            variable=self._var,
+            value=3,
+            width=20,
             height=5,
-            background="orange",
+            background="#000fff000",
             foreground="black",
+            command=self._select
         )
 
         option_hard = tk.Radiobutton(
             master=self._frame,
             text="Vaikea",
-            width=10,
+            variable=self._var,
+            value=5,
+            width=20,
             height=5,
-            background="orange",
+            background="#000fff000",
             foreground="black",
+            command=self._select
         )
 
         button = tk.Button(
             master=self._frame,
-            text="Aloita",
+            text="Valmista",
             width=15,
             height=5,
-            background="white",
+            background="#000fff000",
             foreground="black",
-            command=self._handle_show_create_game_view
+            command=self._confirm
         )
 
-        bg_label.grid(row=0, column=0, columnspan=5, rowspan=5)
-        name_label.grid(row=1, column=1, columnspan=5, pady=45)
-        self._player_name_entry .grid(row=2, column=2)
-        option_easy.grid(row=3, column=1, columnspan=1, padx=80,  pady=60)
-        option_normal.grid(row=3, column=2, columnspan=1, padx=30, pady=60)
-        option_hard.grid(row=3, column=3, columnspan=1,  padx=80, pady=60)
-        button.grid(row=4, column=2, columnspan=1, sticky=constants.N, pady=40)
+        bg_label.grid(row=0, column=0, columnspan=5, rowspan=6)
+        name_label.grid(row=1, column=2, rowspan=2, pady=45)
+        self._player_name_entry .grid(row=2, column=2, sticky=constants.S)
+        instr_label.grid(row=3, column=2, sticky=constants.S)
+        option_easy.grid(row=4, column=1, sticky=constants.E, pady=60)
+        option_normal.grid(row=4, column=2, pady=60)
+        option_hard.grid(row=4, column=3, sticky=constants.W, pady=60)
+        button.grid(row=5, column=2, columnspan=1, pady=40)
+
+    def _select(self):
+        self._level = str(self._var.get())
+
+    def _confirm(self):
+        if self._player_name_entry.get() != "":
+            self._player_name = self._player_name_entry.get()
+        self._handle_show_ready_view(self._player_name, self._level)

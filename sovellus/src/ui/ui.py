@@ -1,8 +1,12 @@
 from ui.score_view import ScoreView
 from ui.start_view import StartView
-from ui.game_view import GameView
-from entities.game import Game
-from entities.player import Player
+from ui.ready_view import ReadyView
+from ui.easy_game_view import EasyGameView
+from ui.normal_game_view import NormalGameView
+from ui.hard_game_view import HardGameView
+from ui.check_answer_view import CheckAnswerView
+from ui.finished_view import FinishedView
+from services.gameservice import GameService
 
 
 class UI:
@@ -22,12 +26,6 @@ class UI:
             self._current_view.destroy()
         self._current_view = None
 
-    # handelers
-
-    def _handle_start_game(self):
-        print("hello")
-        self._show_game_view()
-
     # show_views
 
     def _show_start_view(self):
@@ -35,17 +33,82 @@ class UI:
 
         self._current_view = StartView(
             self._root,
-            self._show_game_view
+            self._show_ready_view
         )
         self._current_view.pack()
 
-    def _show_game_view(self):
+    def _show_ready_view(self, player_name, game_level):
         self._hide_current_view()
 
-        self._current_view = GameView(
+        self._current_view = ReadyView(
             self._root,
-            self._show_score_view
+            self._show_start_view,
+            self._show_easy_game_view,
+            self._show_normal_game_view,
+            self._show_hard_game_view,
+            player_name,
+            game_level
         )
+        self._current_view.pack()
+
+    def _show_easy_game_view(self, game):
+        self._hide_current_view()
+
+        self._current_view = EasyGameView(
+            self._root,
+            self._show_check_answer_view,
+            self._show_easy_game_view,
+            game
+        )
+
+        self._current_view.pack()
+
+    def _show_normal_game_view(self, game):
+        self._hide_current_view()
+
+        self._current_view = NormalGameView(
+            self._root,
+            self._show_check_answer_view,
+            self._show_normal_game_view,
+            game
+        )
+
+        self._current_view.pack()
+
+    def _show_hard_game_view(self, game):
+        self._hide_current_view()
+
+        self._current_view = HardGameView(
+            self._root,
+            self._show_check_answer_view,
+            self._show_hard_game_view,
+            game
+        )
+
+        self._current_view.pack()
+
+    def _show_check_answer_view(self, return_view, answer):
+        self._hide_current_view()
+
+        self._current_view = CheckAnswerView(
+            self._root,
+            self._show_finished_view,
+            return_view,
+            answer
+        )
+
+        self._current_view.pack()
+
+    def _show_finished_view(self):
+        self._hide_current_view()
+
+        self._current_view = FinishedView(
+            self._root,
+            self._show_finished_view,
+            self._show_score_view,
+            self._show_start_view
+        )
+
         self._current_view.pack()
 
     def _show_score_view(self):
@@ -56,6 +119,8 @@ class UI:
             self._show_start_view
         )
         self._current_view.pack()
+
+    # väliaikainen tekstikäyttöliittymä
 
     def txt_ui(self):
         while True:
@@ -89,35 +154,35 @@ class UI:
                 if diff == "v":
                     level = 5
                     break
-            player = Player(name)
-            game = Game(player, level)
+
+            game_service = GameService(level, name)
             print(
                 f"Pelataan {rounds} kierrosta. Oikeasta vastauksesta saat 50 pistettä, väärästä 0.")
             print()
             for i in range(1, rounds+1):
                 print(f"Kierros {i}")
-                game.create_question()
+                game_service.create_question()
                 print("??????????????????????????????????????????????????")
-                print(f"Mikä on maan {game.country} pääkaupunki  ")
+                print(f"Mikä on maan {game_service.country()} pääkaupunki  ")
                 print("??????????????????????????????????????????????????")
                 print()
-                for capital in game.other_capitals():
-                    print(capital)
+                j = 0
+                while j < level:
+                    print(game_service.option())
+                    j += 1
                 print()
                 vastaus = input("Vastaus ")
                 print()
-                if game.check_capital(vastaus):
+                if game_service.check_capital(vastaus):
                     print("***************")
                     print("**  Oikein!  **")
                     print("***************")
                     print()
                 else:
                     print("---------------------------------------------")
-                    print(f"Väärin! Oikea vastaus on {game.capital}")
+                    print(f"Väärin! Oikea vastaus on {game_service.capital()}")
                     print("---------------------------------------------")
                     print()
 
-            print(f"Pelaajan {player.name()} pisteet: ***{player.score()}***")
-
-    def highscore_view(self):
-        pass
+            print(
+                f"Pelaajan {game_service.player_name()} pisteet: ***{game_service.player_score()}***")
