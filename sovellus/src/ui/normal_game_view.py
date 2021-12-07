@@ -16,10 +16,15 @@ class NormalGameView:
 
         self._box = messagebox
 
-        self._country = None
-        self._first_option = None
-        self._second_option = None
-        self._third_option = None
+        self._country = StringVar()
+        self._first_option = StringVar()
+        self._second_option = StringVar()
+        self._third_option = StringVar()
+
+        self._ans_one = None
+        self._ans_two = None
+        self._ans_three = None
+
         self._rounds = 10
 
         self._initialize()
@@ -30,19 +35,21 @@ class NormalGameView:
     def destroy(self):
         self._frame.destroy()
 
-    def run_game(self):
-        self._run_game
-
     def _run_game(self):
         self._rounds -= 1
         self._game.create_question()
 
-        self._country = self._game.country()
-        self._first_option = self._game.option()
-        self._second_option = self._game.option()
-        self._third_option = self._game.option()
+        self._ans_one = self._game.option()
+        self._ans_two = self._game.option()
+        self._ans_three = self._game.option()
+
+        self._country.set(self._game.country())
+        self._first_option.set(self._ans_one)
+        self._second_option.set(self._ans_two)
+        self._third_option.set(self._ans_three)
 
     def _initialize(self):
+
         self._run_game()
 
         self._frame = tk.Frame(master=self._root)
@@ -65,7 +72,7 @@ class NormalGameView:
 
         country_label = tk.Label(
             master=self._frame,
-            text=self._country,
+            textvariable=self._country,
             foreground="black",
             background="orange",
             width=35,
@@ -74,7 +81,7 @@ class NormalGameView:
 
         st_button = tk.Button(
             master=self._frame,
-            text=self._first_option,
+            textvariable=self._first_option,
             width=35,
             height=5,
             background="white",
@@ -84,7 +91,7 @@ class NormalGameView:
 
         nd_button = tk.Button(
             master=self._frame,
-            text=self._second_option,
+            textvariable=self._second_option,
             width=35,
             height=5,
             background="white",
@@ -94,14 +101,14 @@ class NormalGameView:
 
         rd_button = tk.Button(
             master=self._frame,
-            text=self._third_option,
+            textvariable=self._third_option,
             width=35,
             height=5,
             background="white",
             foreground="black",
             command=self._select_rd_answer
         )
-
+        
         bg_label.grid(row=0, column=2, columnspan=4, rowspan=4)
         name_label.grid(row=0, column=2, columnspan=4,
                         pady=45, sticky=constants.N)
@@ -111,35 +118,39 @@ class NormalGameView:
         nd_button.grid(row=2, column=2, columnspan=4)
         rd_button.grid(row=3, column=2, columnspan=4)
 
+    def _handle_finished_view(self):
+        pass
+
     def _select_st_answer(self):
-        if self._game.check_capital(self._first_option):
-            res = self._box.askquestion("Oikein", "Hienoa!\nJatketaanko?")
+
+        if self._game.check_capital(self._ans_one):
+            res = self._box.askquestion("Oikein", "Hienoa!\n\nJatketaanko?")
             if res == "yes":
-                pass
+                self._initialize()
         else:
             res = self._box.askquestion(
-                "Väärin", f"Oikea vastaus on {self._game.capital()}\nJatketaanko?")
+                "Väärin", f"Oikea vastaus on {self._game.capital()}\n\nJatketaanko?")
             if res == "yes":
-                self.run_game
+                self._initialize()
 
     def _select_nd_answer(self):
-        if self._game.check_capital(self._second_option):
-            res = self._box.askquestion("Oikein", "Hienoa!\nJatketaanko?")
+        if self._game.check_capital(self._ans_two):
+            res = self._box.askquestion("Oikein", "Hienoa!\n\nJatketaanko?")
             if res == "yes":
-                self._own_view
+                self._initialize()
         else:
             res = self._box.askquestion(
-                "Väärin", f"Oikea vastaus on {self._game.capital()}\nJatketaanko?")
+                "Väärin", f"Oikea vastaus on {self._game.capital()}\n\nJatketaanko?")
             if res == "yes":
-                self._own_view
+                self._initialize()
 
     def _select_rd_answer(self):
-        if self._game.check_capital(self._third_option):
-            res = self._box.askquestion("Oikein", "Hienoa!\nJatketaanko?")
+        if self._game.check_capital(self._ans_three):
+            res = self._box.askquestion("Oikein", "Hienoa!\n\nJatketaanko?")
             if res == "yes":
-                self._run_game
+                self._initialize()
         else:
             res = self._box.askquestion(
-                "Väärin", f"Oikea vastaus on {self._game.capital()}\nJatketaanko?")
+                "Väärin", f"Oikea vastaus on {self._game.capital()}\n\nJatketaanko?")
             if res == "yes":
-                self._run_game
+                self._initialize()
