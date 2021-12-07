@@ -1,7 +1,7 @@
-** Pakkauskaavio
+## Pakkauskaavio
 
 ![Pakkauskaavio](pakkauskaavio.png)
 
-** Sekvenssikaavio
+## Sekvenssikaavio
 
 ![Sekvenssikaavio](sekvenssikaavio.png)
