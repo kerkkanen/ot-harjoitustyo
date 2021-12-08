@@ -131,21 +131,15 @@ class NormalGameView:
 
     def _select_nd_answer(self):
         self._end_time = time.time()
-        ans_time = self._end_time - self._start_time
+        ans_time = self._end_time - self._start_time + 2
         self._feedback_message(
             self._game.check_capital(self._ans_two, ans_time))
 
     def _select_rd_answer(self):
         self._end_time = time.time()
-        ans_time = self._end_time - self._start_time
+        ans_time = self._end_time - self._start_time + 2
         self._feedback_message(
             self._game.check_capital(self._ans_three, ans_time))
-
-    def _select_rth_answer(self):
-        self._end_time = time.time()
-        ans_time = self._end_time - self._start_time
-        self._feedback_message(
-            self._game.check_capital(self._ans_four, ans_time))
 
     def _feedback_message(self, answer):
         if answer:
@@ -174,7 +168,7 @@ class NormalGameView:
     def _end(self):
         self._game.save_score()
         self._end_box.showinfo("Peli päättyi!",
-                               f"Pelaajan {self._game.player_name()} pisteet:\n              {self._game.player_score()}")
+                               f"Pelaajan {self._game.player_name()} pisteet:\n             {self._game.player_score()}")
         self._handle_finished_view()
 
     def _handle_finished_view(self):

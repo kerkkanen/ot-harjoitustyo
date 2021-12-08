@@ -111,13 +111,13 @@ class EasyGameView:
 
     def _select_st_answer(self):
         self._end_time = time.time()
-        ans_time = self._end_time - self._start_time
+        ans_time = self._end_time - self._start_time + 3
         self._feedback_message(
             self._game.check_capital(self._ans_one, ans_time))
 
     def _select_nd_answer(self):
         self._end_time = time.time()
-        ans_time = self._end_time - self._start_time
+        ans_time = self._end_time - self._start_time + 3
         self._feedback_message(
             self._game.check_capital(self._ans_two, ans_time))
 

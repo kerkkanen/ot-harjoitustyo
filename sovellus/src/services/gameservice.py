@@ -86,12 +86,17 @@ class GameService:
         self._highscores.sort()
         self._highscores.reverse()
 
-        score_list = ""
+        score_list = []
 
         index = 0
         for score in self._highscores:
-            if index >= 10:
+            if index == 5:
                 break
-            score_list += f"{score[1]} ({score[2]}) .................... {score[0]}\n"
+            score_list.append(f"{score[1]}\n{score[2]}\n{score[0]}")
             index += 1
+        while len(score_list) < 3:
+            score_list.append("TYHJÄ")
         return score_list
+
+    def get_score(self, scores):
+        return scores.pop(0)

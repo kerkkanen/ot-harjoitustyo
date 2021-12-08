@@ -12,6 +12,8 @@ class FinishedView:
         self._frame = None
         self._game = game
 
+        self._scores = self._game.get_highscores()
+
         self._initialize()
 
     def pack(self):
@@ -30,18 +32,46 @@ class FinishedView:
             height=45
         )
 
-        score_label = tk.Label(
+
+        scores = tk.Label(
             master=self._frame,
-            text=self._game.get_highscores(),
+            text="TOP 3 PISTEET",
             foreground="black",
             background="orange",
             width=35,
-            height=15
+            height=5
+        )
+
+        score_st = tk.Label(
+            master=self._frame,
+            text=self._game.get_score(self._scores),
+            foreground="black",
+            background="orange",
+            width=35,
+            height=5
+        )
+
+        score_nd = tk.Label(
+            master=self._frame,
+            text=self._game.get_score(self._scores),
+            foreground="black",
+            background="orange",
+            width=35,
+            height=5
+        )
+
+        score_rd = tk.Label(
+            master=self._frame,
+            text=self._game.get_score(self._scores),
+            foreground="black",
+            background="orange",
+            width=35,
+            height=5
         )
 
         button = tk.Button(
             master=self._frame,
-            text="Alkuun",
+            text="Pelaa uudelleen",
             width=15,
             height=5,
             background="grey",
@@ -50,5 +80,9 @@ class FinishedView:
         )
 
         bg_label.grid(row=0, column=0, columnspan=5, rowspan=6)
-        score_label.grid(row=2, column=2)
-        button.grid(row=4, column=2)
+        scores.grid(row=1,column=2)
+        score_st.grid(row=2, column=2)
+        score_nd.grid(row=3, column=2)
+        score_rd.grid(row=4, column=2)
+
+        button.grid(row=5, column=2)
