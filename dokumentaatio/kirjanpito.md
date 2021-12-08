@@ -15,5 +15,6 @@ Päivä | Aika | Mitä tein
 1.12. |   2  | Sovelluslogiikan liittämistä käyttöliittymään
 6.12. |   6  | Toiminnaliisuden kytkemistä käyttöliittymään, testien tekoa ja vanhojen testien refaktorointia
 7.12. |   7  | Sekvenssikaavion teko, toiminnallisuuden rakentelua käyttöliittymään, vaikeustasojen rakentaminen, releasen teko
+8.12. |   1  | Ongelmakohtien ratkomista
 
-Yhteensä 37 tuntia
+Yhteensä 38 tuntia

@@ -23,7 +23,7 @@ class EasyGameView:
         self._ans_one = None
         self._ans_two = None
 
-        self._rounds = 3
+        self._rounds = 10
 
         self._initialize()
 
@@ -122,12 +122,21 @@ class EasyGameView:
         if clicked == "no":
             self._end()
         if clicked == "yes":
-            self._initialize()
+            self._rounds -= 1
+            if self._rounds > 0:
+                self._next_round()
+            else:
+                self._end()
+
+    def _next_round(self):
+        self.destroy()
+        self._initialize()
+        self.pack()
 
     def _end(self):
-        self._end_box.showinfo("Heippa!", "Peli päättyy.")
+        self._end_box.showinfo("Peli päättyi",
+                               "10 kierrosta pelattu.\nHeippa!")
         self._handle_finished_view()
 
     def _handle_finished_view(self):
-
         self._handle_show_finished_view(self._game)
