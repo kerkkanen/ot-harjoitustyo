@@ -1,5 +1,6 @@
 from random import randint
 from random import shuffle
+import math
 from entities.question import Question
 from entities.player import Player
 
@@ -25,6 +26,7 @@ class GameService:
         self._cnc_dict = self._question_repository.read_countries()
         self._country_list = self._question_repository.countries_list(
             self._cnc_dict)
+        self._highscores = None
 
     def create_question(self):
         rndints = []
@@ -46,9 +48,10 @@ class GameService:
             capital_options.append(self._cnc_dict[country])
         return capital_options
 
-    def check_capital(self, answer):
+    def check_capital(self, answer, time):
+        time = math.floor(time*100)/100
         if self._question.capital() == answer:
-            self._player.add_score(50)
+            self._player.add_score(time)
             return True
         return False
 
@@ -66,3 +69,29 @@ class GameService:
 
     def player_score(self):
         return self._player.score()
+
+    def save_score(self):
+        self._player_repository.write_highscores(
+            self.player_name(), str(self.player_score()), self.level())
+
+    def level(self):
+        if self._level == 2:
+            return "helppo"
+        if self._level == 3:
+            return "normaali"
+        return "vaikea"
+
+    def get_highscores(self):
+        self._highscores = self._player_repository.read_highscores()
+        self._highscores.sort()
+        self._highscores.reverse()
+
+        score_list = ""
+
+        index = 0
+        for score in self._highscores:
+            if index >= 10:
+                break
+            score_list += f"{score[1]} ({score[2]}) .................... {score[0]}\n"
+            index += 1
+        return score_list

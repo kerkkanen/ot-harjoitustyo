@@ -30,13 +30,13 @@ class FinishedView:
             height=45
         )
 
-        info_label = tk.Label(
+        score_label = tk.Label(
             master=self._frame,
-            text=f"Pelaajan {self._game.player_name()} pisteet:\n {self._game.player_score()}",
+            text=self._game.get_highscores(),
             foreground="black",
             background="orange",
-            width=50,
-            height=10
+            width=35,
+            height=15
         )
 
         button = tk.Button(
@@ -50,5 +50,5 @@ class FinishedView:
         )
 
         bg_label.grid(row=0, column=0, columnspan=5, rowspan=6)
-        info_label.grid(row=2, column=2)
+        score_label.grid(row=2, column=2)
         button.grid(row=4, column=2)

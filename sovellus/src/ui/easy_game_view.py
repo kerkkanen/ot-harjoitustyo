@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import *
+import time
 from tkinter import constants, messagebox
 
 from services.gameservice import GameService
@@ -12,6 +13,9 @@ class EasyGameView:
         self._handle_show_finished_view = handle_show_finished_view
         self._frame = None
         self._game = game
+
+        self._start_time = None
+        self._end_time = None
 
         self._box = messagebox
         self._end_box = messagebox
@@ -45,6 +49,8 @@ class EasyGameView:
         self._second_option.set(self._ans_two)
 
     def _initialize(self):
+
+        self._start_time = time.time()
 
         self._run_game()
 
@@ -104,10 +110,16 @@ class EasyGameView:
         nd_button.grid(row=3, column=2, columnspan=4)
 
     def _select_st_answer(self):
-        self._feedback_message(self._game.check_capital(self._ans_one))
+        self._end_time = time.time()
+        ans_time = self._end_time - self._start_time
+        self._feedback_message(
+            self._game.check_capital(self._ans_one, ans_time))
 
     def _select_nd_answer(self):
-        self._feedback_message(self._game.check_capital(self._ans_two))
+        self._end_time = time.time()
+        ans_time = self._end_time - self._start_time
+        self._feedback_message(
+            self._game.check_capital(self._ans_two, ans_time))
 
     def _feedback_message(self, answer):
         if answer:
@@ -134,8 +146,9 @@ class EasyGameView:
         self.pack()
 
     def _end(self):
-        self._end_box.showinfo("Peli päättyi",
-                               "10 kierrosta pelattu.\nHeippa!")
+        self._game.save_score()
+        self._end_box.showinfo("Peli päättyi!",
+                               f"Pelaajan {self._game.player_name()} pisteet:\n              {self._game.player_score()}")
         self._handle_finished_view()
 
     def _handle_finished_view(self):
