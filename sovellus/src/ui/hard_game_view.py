@@ -7,10 +7,12 @@ from services.gameservice import GameService
 
 
 class HardGameView:
+    """Tiedot löytyvät samanlaisesta NormalGameView-luokasta.
+    """
 
-    def __init__(self, root, handle_show_finished_view, game):
+    def __init__(self, root, handle_show_score_view, game):
         self._root = root
-        self._handle_show_finished_view = handle_show_finished_view
+        self._handle_show_score_view = handle_show_score_view
         self._frame = None
         self._game = game
 
@@ -232,7 +234,7 @@ class HardGameView:
         self._game.save_score()
         self._end_box.showinfo("Peli päättyi!",
                                f"Pelaajan {self._game.player_name()} pisteet:\n              {self._game.player_score()}")
-        self._handle_finished_view()
+        self._handle_score_view()
 
-    def _handle_finished_view(self):
-        self._handle_show_finished_view(self._game)
+    def _handle_score_view(self):
+        self._handle_show_score_view(self._game)

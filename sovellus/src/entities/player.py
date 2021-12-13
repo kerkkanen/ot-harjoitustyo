@@ -1,7 +1,16 @@
 
 class Player:
+    """Luokka, jonka avulla pidetään tietoa pelin pelaajasta.
+    """
 
     def __init__(self, name):
+        """Luokan konstruktori, joka luo pelaajan ja alkupisteet.
+
+        Args:
+            name (str): Pelaajan nimimerkki
+            score (float): Pelaajan alkupisteet
+        """
+
         self._name = name
         self._score = 0
 
@@ -12,6 +21,9 @@ class Player:
         return self._score
 
     def add_score(self, time):
+        """Lisää pelaajalle pisteitä oikeasta vastauksesta käytetyn vastausajan mukaan.
+        """
+
         if time < 1:
             self._score += 100
         elif time < 1.2:
@@ -34,5 +46,3 @@ class Player:
             self._score += 20
         else:
             self._score += 10
-            
-        

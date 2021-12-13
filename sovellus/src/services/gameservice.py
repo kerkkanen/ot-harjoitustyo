@@ -13,8 +13,24 @@ from repositories.player_repository import(
 
 
 class GameService:
+    """Luokka, joka huolehtii pelin logiikasta: kysymyksien luomisesta, tarkistamisesta ja pelaajan pisteitstä.
+    """
 
     def __init__(self, level, name):
+        """Luokan konstruktori, joka luo repositoriot kysymyksille ja pelaajalle
+
+        Args:
+            level (int): Pelin vaikeustason eli vastausvaihtoehtojen määrittävä arvo
+            name (str): Pelaajan nimimerkki, jolla pisteet talletetaan
+
+        Attributes:
+            question_repository: repositorio, joka huolehtii kysymyslistojen luomisesta
+            player_repository: repositorio, joka huolehtii pisteiden lukemisesta ja tallettamisesta
+            question: entiteetti, joka säilöö yhden kysymyksen tiedot
+            cnc_dict: sanakirja, jossa avaimina maat ja arvoina pääkaupungit
+            country_list: lista maista
+            highscores: lista kaikista pisteistä
+        """
 
         self._question_repository = default_question_repository
         self._player_repository = default_player_repository
@@ -29,6 +45,8 @@ class GameService:
         self._highscores = None
 
     def create_question(self):
+        """Luo uuden kysymyksen: arvotaan maa, asetetaan oikea pääkaupunki ja luodaan väärät vastausvaihtoehdot.
+        """
         rndints = []
         while len(rndints) < int(self._level):
             rnd = randint(0, len(self._country_list)-1)
@@ -41,14 +59,31 @@ class GameService:
         shuffle(options)
         self._question = Question(country, capital, options)
 
-    def create_options(self, option_nubmers):
+    def create_options(self, option_numbers):
+        """Luo kysymykselle väärät vastausvaihtoehdot.
+
+        Args:
+            option_nubmers (int): Peliin tarvittava vastausvaihtoehtojen määrä
+
+        Returns:
+            list: Lista vääristä vastausvaihtoehdoista
+        """
         capital_options = []
-        while len(option_nubmers) > 0:
-            country = self._country_list[option_nubmers.pop(0)]
+        while len(option_numbers) > 0:
+            country = self._country_list[option_numbers.pop(0)]
             capital_options.append(self._cnc_dict[country])
         return capital_options
 
     def check_capital(self, answer, time):
+        """Tarkistaa, onko vastaus oikea ja kutsuu pisteitä tallettavaa metodia player-luokassa.
+
+        Args:
+            answer (str): Pelaajan valitsema vastaus
+            time (float): [Vastauksen valitsemiseen kulunut aika
+
+        Returns:
+            boolean: Onko vastaus oikein vai väärin
+        """
         time = math.floor(time*100)/100
         if self._question.capital() == answer:
             self._player.add_score(time)
@@ -71,10 +106,17 @@ class GameService:
         return self._player.score()
 
     def save_score(self):
+        """Kutsuu player-repositorion pisteitä tiedostoon kirjoittavaa metodia.
+        """
         self._player_repository.write_highscores(
             self.player_name(), str(self.player_score()), self.level())
 
     def level(self):
+        """Muuntaa pelitason sanalliseen muotoon.
+
+        Returns:
+            str: Pelin vaikeustaso
+        """
         if self._level == 2:
             return "helppo"
         if self._level == 3:
@@ -82,6 +124,11 @@ class GameService:
         return "vaikea"
 
     def get_highscores(self):
+        """Luo listan, jolla on kaikkien pelattujen pelien pistetiedot.
+
+        Returns:
+            list: Lista, jonka rivillä on pelaajan nimimerkki, pelatun pelin vaikeustaso ja pisteet / "TYHJÄ".
+        """
         self._highscores = self._player_repository.read_highscores()
         self._highscores.sort()
         self._highscores.reverse()
@@ -90,7 +137,7 @@ class GameService:
 
         index = 0
         for score in self._highscores:
-            if index == 5:
+            if index == 3:
                 break
             score_list.append(f"{score[1]}\n{score[2]}\n{score[0]}")
             index += 1
@@ -99,4 +146,12 @@ class GameService:
         return score_list
 
     def get_score(self, scores):
+        """Hakee yhden rivin pistetilastoon.
+
+        Args:
+            scores (list): Lista, jolla on kaikki pisteet
+
+        Returns:
+            [str]: Listalla olevan parhaiten pisteitä saaneen tiedot (nimi, pelin taso, pisteet)
+        """
         return scores.pop(0)

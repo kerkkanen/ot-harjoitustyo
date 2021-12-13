@@ -4,20 +4,29 @@ from ui.ready_view import ReadyView
 from ui.easy_game_view import EasyGameView
 from ui.normal_game_view import NormalGameView
 from ui.hard_game_view import HardGameView
-from ui.finished_view import FinishedView
+from ui.score_view import ScoreView
 from services.gameservice import GameService
 
 
 class UI:
+    """Käyttäliittymä, josta kutsutaan eri näkymiä.
+    """
 
     # def __init__(self):
     #   self.txt_ui()
 
     def __init__(self, root):
+        """Luokan konstruktori.
+
+        Args:
+            root (tkInter): Graafisen liittymän juuri.
+        """
         self._root = root
         self._current_view = None
 
     def start(self):
+        """Käynnistää aloitusnäkymän.
+        """
         self._show_start_view()
 
     def _hide_current_view(self):
@@ -25,9 +34,9 @@ class UI:
             self._current_view.destroy()
         self._current_view = None
 
-    # show_views
-
     def _show_start_view(self):
+        """Asettaa aloitusnäkymän näkyville. 
+        """
         self._hide_current_view()
 
         self._current_view = StartView(
@@ -37,6 +46,8 @@ class UI:
         self._current_view.pack()
 
     def _show_ready_view(self, player_name, game_level):
+        """Asettaa peliin valmistautumisnäkymän näkyville. 
+        """
         self._hide_current_view()
 
         self._current_view = ReadyView(
@@ -51,62 +62,60 @@ class UI:
         self._current_view.pack()
 
     def _show_easy_game_view(self, game):
+        """Asettaa kahden vastausvaihtoehdon pelinäkymän näkyville. 
+        """
         self._hide_current_view()
 
         self._current_view = EasyGameView(
             self._root,
-            self._show_finished_view,
+            self._show_score_view,
             game
         )
 
         self._current_view.pack()
 
     def _show_normal_game_view(self, game):
+        """Asettaa kolmen vastausvaihtoehdon pelinäkymän näkyville. 
+        """
         self._hide_current_view()
 
         self._current_view = NormalGameView(
             self._root,
-            self._show_finished_view,
+            self._show_score_view,
             game
         )
 
         self._current_view.pack()
 
     def _show_hard_game_view(self, game):
+        """Asettaa kuuden vastausvaihtoehdon pelinäkymän näkyville. 
+        """
         self._hide_current_view()
 
         self._current_view = HardGameView(
             self._root,
-            self._show_finished_view,
+            self._show_score_view,
             game
         )
 
         self._current_view.pack()
 
-    def _show_finished_view(self, game):
+    def _show_score_view(self, game):
+        """Asettaa pistenäkymän näkyville. 
+        """
         self._hide_current_view()
 
-        self._current_view = FinishedView(
+        self._current_view = ScoreView(
             self._root,
-            self._show_score_view,
             self._show_start_view,
             game
         )
 
         self._current_view.pack()
 
-    def _show_score_view(self):
-        self._hide_current_view()
-
-        self._current_view = ScoreView(
-            self._root,
-            self._show_start_view
-        )
-        self._current_view.pack()
-
-    # väliaikainen tekstikäyttöliittymä
-
     def txt_ui(self):
+        """Tekstikäyttöliittymä pelilogiikkaan.
+        """
         while True:
             answer = input("Pelaa (1) tai lopeta (2)")
             if answer == "2":

@@ -7,10 +7,28 @@ from services.gameservice import GameService
 
 
 class NormalGameView:
+    """Kolmen vastausvaihtoehdon peli.
+    """
 
-    def __init__(self, root, handle_show_finished_view, game):
+    def __init__(self, root, handle_show_score_view, game):
+        """Luokan konstruktori, josta käynnistetään näkymän luonti.
+
+        Args:
+            root (tkInter]): Käyttöliittymän juuri
+            handle_show_score_view (function): Kutsuu pistenäkymän käynnistävää funktiota
+            game (class): GameService, jossa tiedot pelistä
+
+        Attributes:
+            frame: Näkymä, johon elementit asetetaan
+            start/end_time: Vastaamisen alku- ja loppuaika
+            box/endbox: Tekstilaatikot vastauspalautteelle ja pelin loppumiselle
+            country: Kysytty maa-teksti
+            f/s/t_option: Vastausvaihtoehdot-tekstit
+            ans_o/t/t: Vastausvaihtoehdot
+            rounds: Pelattujen kierrosten lukumäärä
+        """
         self._root = root
-        self._handle_show_finished_view = handle_show_finished_view
+        self._handle_show_score_view = handle_show_score_view
         self._frame = None
         self._game = game
 
@@ -40,6 +58,8 @@ class NormalGameView:
         self._frame.destroy()
 
     def _run_game(self):
+        """Luo uuden kysymyksen ja tallettaa kysytyn maan ja vaihtoehdot oikeille muuttujiin.
+        """
 
         self._game.create_question()
 
@@ -53,6 +73,8 @@ class NormalGameView:
         self._third_option.set(self._ans_three)
 
     def _initialize(self):
+        """Alustaa näkymän: luo elementit, asettaa muuttujat niihin ja elementit paikoilleen.
+        """
         self._start_time = time.time()
 
         self._run_game()
@@ -116,7 +138,7 @@ class NormalGameView:
 
         bg_label.grid(row=0, column=2, columnspan=4, rowspan=4)
         name_label.grid(row=0, column=2, columnspan=4,
-                        pady=45, sticky=constants.N)
+                        pady=45, sticky=constants.[summary]N)
         country_label.grid(row=0, column=2, columnspan=4,
                            pady=100, sticky=constants.S)
         st_button.grid(row=1, column=2, columnspan=4)
@@ -124,6 +146,11 @@ class NormalGameView:
         rd_button.grid(row=3, column=2, columnspan=4)
 
     def _select_st_answer(self):
+        """Toiminta, kun pelaaja on klikannut vastausvaihtoehtoa.
+            Otetaan vastausaika talteen. Kutsutaan vastauspalautelaatikkoa,
+            jolle syötetään oikean vastauksen tarkistava funktio ja vastausaika.
+            (select_answerit on kytketty eri nappeihin)
+        """
         self._end_time = time.time()
         ans_time = self._end_time - self._start_time
         self._feedback_message(
@@ -142,6 +169,13 @@ class NormalGameView:
             self._game.check_capital(self._ans_three, ans_time))
 
     def _feedback_message(self, answer):
+        """Avaa messageboxin, jossa palaute väärästä ja oikeasta vastauksesta.
+           Pelaajalla mahdollisuus jatkaa peliä (yes)
+           tai lopettaa ennen kierrosmäärän päättymistä (no):
+
+        Args:
+            answer (boolean): Tieto, onko pelaajan vastaus oikein vai väärin
+        """
         if answer:
             click = self._box.askquestion("Oikein", "Hienoa!\n\nJatketaanko?")
             self._box_click(click)
@@ -151,6 +185,11 @@ class NormalGameView:
             self._box_click(click)
 
     def _box_click(self, clicked):
+        """Napinpainalluksen käsittelijä.
+
+        Args:
+            clicked (str): Jatketaanko peliä, vai lopetetaanko kesken
+        """
         if clicked == "no":
             self._end()
         if clicked == "yes":
@@ -161,15 +200,20 @@ class NormalGameView:
                 self._end()
 
     def _next_round(self):
+        """Seuraavan pelikierroksen luominen.
+        """
         self.destroy()
         self._initialize()
         self.pack()
 
     def _end(self):
+        """Pelin päättäminen/päättyminen. Messagebox näyttää pelaajan pisteet.
+           Kutsutaan pistetilastonäkymää.
+        """
         self._game.save_score()
         self._end_box.showinfo("Peli päättyi!",
                                f"Pelaajan {self._game.player_name()} pisteet:\n             {self._game.player_score()}")
-        self._handle_finished_view()
+        self._handle_score_view()
 
-    def _handle_finished_view(self):
-        self._handle_show_finished_view(self._game)
+    def _handle_score_view(self):
+        self._handle_show_score_view(self._game)

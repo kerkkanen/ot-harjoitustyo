@@ -3,14 +3,26 @@ from config import COUNTRIES_FILE_PATH
 
 
 class QuestionRepository:
+    """Luokka huolehtii maiden tietojen lukemisesta ja listaamisesta.
+    """
 
     def __init__(self, file_path):
+        """Luokan konstruktori.
+
+        Args:
+            file_path : Polku tiedostoon, josta maat löytyvät
+        """
         self._file_path = file_path
 
     def read_countries(self):
+        """Avaa cvs-tiedoston, jossa tieto maista pääkaupunkeineen ja maanosineen.
+
+        Returns:
+            dict: Sanakirja, jossa avaimena maa, arvona pääkaupunki
+        """
         countries_n_capitals = {}
 
-        with open(self._file_path) as file:
+        with open(self._file_path, encoding="utf8") as file:
             for row in file:
                 parts = row.split(",")
                 countries_n_capitals[parts[0]] = parts[1]
@@ -18,6 +30,14 @@ class QuestionRepository:
         return countries_n_capitals
 
     def countries_list(self, countries_n_capitals):
+        """Listaa maat.
+
+        Args:
+            countries_n_capitals (list): Lista maista
+
+        Returns:
+            list: Lista, jossa kaikki maat
+        """
         country_list = []
         for country in countries_n_capitals:
             country_list.append(country)
