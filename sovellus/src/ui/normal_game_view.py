@@ -10,13 +10,14 @@ class NormalGameView:
     """Kolmen vastausvaihtoehdon peli.
     """
 
-    def __init__(self, root, handle_show_score_view, game):
+    def __init__(self, root, handle_show_score_view, game, sudden_death):
         """Luokan konstruktori, josta käynnistetään näkymän luonti.
 
         Args:
             root (tkInter]): Käyttöliittymän juuri
             handle_show_score_view (function): Kutsuu pistenäkymän käynnistävää funktiota
             game (class): GameService, jossa tiedot pelistä
+            sudden_death (boolean): Tieto, pelataanko niin, että peli päättyy väärästä vastauksesta
 
         Attributes:
             frame: Näkymä, johon elementit asetetaan
@@ -31,6 +32,7 @@ class NormalGameView:
         self._handle_show_score_view = handle_show_score_view
         self._frame = None
         self._game = game
+        self._sudden_death = sudden_death
 
         self._start_time = None
         self._end_time = None
@@ -179,10 +181,12 @@ class NormalGameView:
         if answer:
             click = self._box.askquestion("Oikein", "Hienoa!\n\nJatketaanko?")
             self._box_click(click)
-        else:
+        elif not self._sudden_death:
             click = self._box.askquestion(
                 "Väärin", f"Oikea vastaus on {self._game.capital()}\n\nJatketaanko?")
             self._box_click(click)
+        else:
+            self._end()
 
     def _box_click(self, clicked):
         """Napinpainalluksen käsittelijä.
@@ -193,11 +197,13 @@ class NormalGameView:
         if clicked == "no":
             self._end()
         if clicked == "yes":
-            self._rounds -= 1
-            if self._rounds > 0:
-                self._next_round()
-            else:
-                self._end()
+            if not self._sudden_death:
+                self._rounds -= 1
+                if self._rounds > 0:
+                    self._next_round()
+                else:
+                    self._end()
+            self._next_round()
 
     def _next_round(self):
         """Seuraavan pelikierroksen luominen.

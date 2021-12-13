@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import ttk
 from tkinter import constants
 from tkinter import *
 from services.gameservice import GameService
@@ -55,7 +56,7 @@ class StartView:
 
         level_label = tk.Label(
             master=self._frame,
-            text="Vaikeustaso",
+            text="Vaikeustaso:",
             foreground="black",
             background="orange",
             width=40,
@@ -107,6 +108,12 @@ class StartView:
             foreground="black",
             command=self._select_level
         )
+
+        #area_box = ttk.Combobox(
+         #   master=self._frame,
+          #  textvariable=self._area_var
+           # )
+        #area_box['values'] = ('Aasia', 'Afrikka', 'Eurooppa', 'Etelä- ja Pohjois-Amerikka', 'Australia', 'Koko maailma')
 
         asia = tk.Radiobutton(
             master=self._frame,

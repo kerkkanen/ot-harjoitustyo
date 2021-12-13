@@ -23,16 +23,16 @@ Pelin alkunäkymässä syötetään pelaajan nimimerkki ja valitaan vaikeustaso.
 ### Sovelluksen käynnistyessä
 
 * Pelaaja syöttää nimimerkin ja valitsee vaikeustason "tehty"
-    * nimimerkin on oltava vähintään yhden merkin pituinen
+    * nimimerkin on oltava vähintään yhden merkin pituinen "tehty niin, että jos nimeä ei syötetä, pelataan oletusnimellä 'Pelaaja 1'"
     * ainakin pelin ensimmäisessä versiossa vaikeustasovalinta säätelee vastausvaihtoehtojen määrää "tehty"
 
 * Pelinäkymässä näkyviin tulee maa, jonka pääkaupunkia kysytään "tehty"
     * pelaaja klikkaa mielestään oikeaa vaihtoehtoa "tehty"
     * oikeasta vastauksesta saa pisteitä "tehty"
-    * pelin ensimmäisessä versiossa peli päättyy väärästä vastauksesta
+    * pelin ensimmäisessä versiossa peli päättyy väärästä vastauksesta "tehty"
 
-* Pelin päätyttyä näkyviin tulee pistetilasto
-    * listaus näyttää kymmenen parasta pelaajaa pisteineen
+* Pelin päätyttyä näkyviin tulee pistetilasto "tehty"
+    * listaus näyttää kolme parasta pelaajaa pisteineen "tehty"
     * pelin voi sulkea tai pelata uudestaan "tehty"
 
 
@@ -41,11 +41,11 @@ Pelin alkunäkymässä syötetään pelaajan nimimerkki ja valitaan vaikeustaso.
 * Vaikeustason variantit
     * peli ei tarjoa vastausvaihtoehtoja, vaan käyttäjän täytyy kirjoittaa pääkaupunki itse
 * Ajan kuluminen
-    * jos pelaaja ei vastaa kuluvan ajan puitteissa, peli päättyy
+    * jos pelaaja ei vastaa kuluvan ajan puitteissa, peli päättyy "tehty niin, että aika vaikuttaa pisteisiin"
 * Elämät
     * pelaajalla on kolme elämää, joista väärä vastaus vähentää yhden
     * peli päättyy, kun kaikki elämät on käytetty
 * Skippaa-toiminto
     * pelaaja voi hypätä maan yli kerran skippaustoiminnolla ilman että peli päättyy/menettää elämän
 * Alueiden valinta
-    * kysyttäviä maita voi rajata esim. maanosan mukaan
+    * kysyttäviä maita voi rajata esim. maanosan mukaan "tehty"

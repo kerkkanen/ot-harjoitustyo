@@ -24,6 +24,7 @@ class ReadyView:
         self._player_name = player_name
         self._game_level = game_level
         self._game_area = game_area
+        self._sudden_death = False
         self._frame = None
 
         self._initialize()
@@ -47,7 +48,7 @@ class ReadyView:
 
         info_label = tk.Label(
             master=self._frame,
-            text=f"Nimimerkkisi: {self._player_name}\n Pelin vaikeustaso: {self._game_level} vastausvaihtoehtoa\nPelialue: {self._game_area}",
+            text=f"Nimimerkkisi:\n{self._player_name}\n\nPelin vaikeustaso:\n{self._game_level} vastausvaihtoehtoa\n\nPelialue:\n{self._game_area}",
             foreground="black",
             background="orange",
             width=50,
@@ -56,7 +57,7 @@ class ReadyView:
 
         return_button = tk.Button(
             master=self._frame,
-            text="Alkuun",
+            text="ALKUUN",
             width=15,
             height=5,
             background="grey",
@@ -64,27 +65,42 @@ class ReadyView:
             command=self._handle_show_start_view
         )
 
-        start_button = tk.Button(
+        start_rounds_button = tk.Button(
             master=self._frame,
-            text="Aloita peli",
-            width=15,
-            height=5,
+            text='"Turvallisesti loppuun"\n\n Peli kestää\n10 kierrosta\n\n\nALOITA',
+            width=20,
+            height=10,
             background="grey",
             foreground="black",
             command=self._start
         )
 
-        bg_label.grid(row=0, column=0, columnspan=5, rowspan=6)
-        info_label.grid(row=1, column=2, rowspan=2, pady=45)
-        return_button.grid(row=5, column=1, columnspan=1, pady=40)
-        start_button.grid(row=5, column=3, columnspan=1, pady=40)
+        start_sudden_death_button = tk.Button(
+            master=self._frame,
+            text='"Kerrasta poikki"\n\nPeli päättyy\nväärästä vastauksesta\n\n\nALOITA',
+            width=20,
+            height=10,
+            background="grey",
+            foreground="black",
+            command=self._death
+        )
+
+        bg_label.grid(row=0, column=0, columnspan=8, rowspan=6)
+        info_label.grid(row=1, column=2, rowspan=1, columnspan=2, pady=45)        
+        start_sudden_death_button.grid(row=4, column=1, columnspan=1, pady=40)
+        start_rounds_button.grid(row=4, column=4, columnspan=1, pady=40)
+        return_button.grid(row=5, column=2, columnspan=2, pady=40)
+
+    def _death(self):
+        self._sudden_death = True
+        self._start()
 
     def _start(self):
         game = GameService(self._game_level, self._player_name, self._game_area)
 
         if self._game_level == 2:
-            self._handle_show_easy_game_view(game)
+            self._handle_show_easy_game_view(game, self._sudden_death)
         elif self._game_level == 3:
-            self._handle_show_normal_game_view(game)
+            self._handle_show_normal_game_view(game, self._sudden_death)
         else:
-            self._handle_show_hard_game_view(game)
+            self._handle_show_hard_game_view(game, self._sudden_death)

@@ -4,7 +4,7 @@ from services.gameservice import GameService
 
 class TestScore(unittest.TestCase):
     def setUp(self):
-        self.game = GameService(6, "Kisu", "all")
+        self.game = GameService(6, "Kisu", "Maailma")
 
     def test_scores_are_saved(self):
         self.game.create_question()
@@ -29,13 +29,11 @@ class TestScore(unittest.TestCase):
         self.game.check_capital(capital, 3)
         self.game.save_score()
 
-        other_game = GameService(2, "Sissu", "all")
+        other_game = GameService(2, "Sissu", "Maailma")
         other_game.create_question()
         capital = other_game.capital()
         other_game.check_capital(capital, 5)
         other_game.save_score()
 
         scores = self.game.get_highscores()
-        score_one = self.game.get_score(scores)
-        score_two = self.game.get_score(scores)
-        self.assertTrue(score_one[0] >= score_two[0])
+        self.assertTrue(scores[0][3] >= scores[1][3])

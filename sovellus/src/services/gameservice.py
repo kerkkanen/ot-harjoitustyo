@@ -141,7 +141,8 @@ class GameService:
         for score in self._highscores:
             if index == 3:
                 break
-            score_list.append(f"{score[1]}\n{score[2]}\n {score[3]}\n{score[0]}")
+            score_list.append(
+                f"{score[1]}\n{score[2]}\n {score[3]}\n{score[0]}")
             index += 1
         while len(score_list) < 3:
             score_list.append("TYHJÄ")
