@@ -16,12 +16,13 @@ class GameService:
     """Luokka, joka huolehtii pelin logiikasta: kysymyksien luomisesta, tarkistamisesta ja pelaajan pisteitstä.
     """
 
-    def __init__(self, level, name):
+    def __init__(self, level, name, area):
         """Luokan konstruktori, joka luo repositoriot kysymyksille ja pelaajalle
 
         Args:
             level (int): Pelin vaikeustason eli vastausvaihtoehtojen määrittävä arvo
             name (str): Pelaajan nimimerkki, jolla pisteet talletetaan
+            area (str): Alue, jonka maista kysymykset tulevat
 
         Attributes:
             question_repository: repositorio, joka huolehtii kysymyslistojen luomisesta
@@ -38,10 +39,11 @@ class GameService:
         self._question = None
         self._player = Player(name)
         self._level = int(level)
+        self._area = area
 
         self._cnc_dict = self._question_repository.read_countries()
         self._country_list = self._question_repository.countries_list(
-            self._cnc_dict)
+            self._cnc_dict, self._area)
         self._highscores = None
 
     def create_question(self):
@@ -53,7 +55,7 @@ class GameService:
             if rnd not in rndints:
                 rndints.append(rnd)
         country = self._country_list[rndints.pop(0)]
-        capital = self._cnc_dict[country]
+        capital = self._cnc_dict[country][0]
         options = self.create_options(rndints)
         options.append(capital)
         shuffle(options)
@@ -71,7 +73,7 @@ class GameService:
         capital_options = []
         while len(option_numbers) > 0:
             country = self._country_list[option_numbers.pop(0)]
-            capital_options.append(self._cnc_dict[country])
+            capital_options.append(self._cnc_dict[country][0])
         return capital_options
 
     def check_capital(self, answer, time):
@@ -109,7 +111,7 @@ class GameService:
         """Kutsuu player-repositorion pisteitä tiedostoon kirjoittavaa metodia.
         """
         self._player_repository.write_highscores(
-            self.player_name(), str(self.player_score()), self.level())
+            self.player_name(), str(self.player_score()), self.level(), self._area)
 
     def level(self):
         """Muuntaa pelitason sanalliseen muotoon.
@@ -139,7 +141,7 @@ class GameService:
         for score in self._highscores:
             if index == 3:
                 break
-            score_list.append(f"{score[1]}\n{score[2]}\n{score[0]}")
+            score_list.append(f"{score[1]}\n{score[2]}\n {score[3]}\n{score[0]}")
             index += 1
         while len(score_list) < 3:
             score_list.append("TYHJÄ")

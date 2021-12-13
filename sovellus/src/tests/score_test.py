@@ -4,7 +4,7 @@ from services.gameservice import GameService
 
 class TestScore(unittest.TestCase):
     def setUp(self):
-        self.game = GameService(6, "Kisu")
+        self.game = GameService(6, "Kisu", "all")
 
     def test_scores_are_saved(self):
         self.game.create_question()
@@ -29,7 +29,7 @@ class TestScore(unittest.TestCase):
         self.game.check_capital(capital, 3)
         self.game.save_score()
 
-        other_game = GameService(2, "Sissu")
+        other_game = GameService(2, "Sissu", "all")
         other_game.create_question()
         capital = other_game.capital()
         other_game.check_capital(capital, 5)

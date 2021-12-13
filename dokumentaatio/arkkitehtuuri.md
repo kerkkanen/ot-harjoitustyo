@@ -27,6 +27,7 @@ GameService vastaa kaikesta peliin ja pisteisiin liittyvästä logiikasta. Luokk
 * check_capital()
 * save_score()
 * get_highscores()
+
 GameServicella on yhteys luokkiin QuestionRepository ja PlayerRepository, joiden kautta haetaan tiedot kysymyksiin ja hoidetaan pistetilaston haku ja talletus. Luokkien toteutus injektoidaan sovelluslogiikalle konstruktorikutsun yhteydessä.
 
 ## Tietojen tallennus

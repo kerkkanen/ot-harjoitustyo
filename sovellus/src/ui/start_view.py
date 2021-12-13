@@ -5,14 +5,17 @@ from services.gameservice import GameService
 
 
 class StartView:
-    def __init__(self, root, handle_show_ready_view):
+    def __init__(self, root, handle_show_ready_view, handle_show_score_view):
         self._root = root
         self._handle_show_ready_view = handle_show_ready_view
+        self._handle_show_score_view = handle_show_score_view
         self._frame = None
-        self._var = 3
+        self._level_var = 3
+        self._area_var = "Maailma"
         self._player_name_entry = None
         self._player_name = "Pelaaja 1"
         self._level = 3
+        self._area = "Maailma"
 
         self._initialize()
 
@@ -24,7 +27,8 @@ class StartView:
 
     def _initialize(self):
         self._frame = tk.Frame(master=self._root)
-        self._var = IntVar()
+        self._level_var = IntVar()
+        self._area_var = StringVar()
 
         bg_label = tk.Label(
             master=self._frame,
@@ -39,7 +43,7 @@ class StartView:
             foreground="black",
             background="orange",
             width=20,
-            height=5
+            height=3
         )
 
         self._player_name_entry = tk.Entry(
@@ -49,54 +53,147 @@ class StartView:
             width=30
         )
 
-        instr_label = tk.Label(
+        level_label = tk.Label(
             master=self._frame,
-            text="Valitse vastausvaihtoehtojen määrä:",
+            text="Vaikeustaso",
             foreground="black",
             background="orange",
-            width=50,
+            width=40,
+            height=5
+        )
+
+
+        area_label = tk.Label(
+            master=self._frame,
+            text="Pelialue:",
+            foreground="black",
+            background="orange",
+            width=40,
             height=5
         )
 
         option_easy = tk.Radiobutton(
             master=self._frame,
-            text="2",
-            variable=self._var,
+            text="Helppo",
+            variable=self._level_var,
             value=2,
-            width=20,
-            height=5,
+            width=10,
+            height=3,
             background="#000fff000",
             foreground="black",
-            command=self._select
+            command=self._select_level
         )
 
         option_normal = tk.Radiobutton(
             master=self._frame,
-            text="3",
-            variable=self._var,
+            text="Keskitaso",
+            variable=self._level_var,
             value=3,
-            width=20,
-            height=5,
+            width=10,
+            height=3,
             background="#000fff000",
             foreground="black",
-            command=self._select
+            command=self._select_level
         )
 
         option_hard = tk.Radiobutton(
             master=self._frame,
-            text="6",
-            variable=self._var,
+            text="Vaikea",
+            variable=self._level_var,
             value=6,
-            width=20,
-            height=5,
+            width=10,
+            height=3,
             background="#000fff000",
             foreground="black",
-            command=self._select
+            command=self._select_level
         )
 
-        button = tk.Button(
+        asia = tk.Radiobutton(
             master=self._frame,
-            text="Valmista",
+            text="Aasia",
+            variable=self._area_var,
+            value="Aasia",
+            width=25,
+            height=3,
+            background="#000fff000",
+            foreground="black",
+            command=self._select_area
+        )
+
+        africa = tk.Radiobutton(
+            master=self._frame,
+            text="Afrikka",
+            variable=self._area_var,
+            value="Afrikka",
+            width=25,
+            height=3,
+            background="#000fff000",
+            foreground="black",
+            command=self._select_area
+        )
+    
+
+        australia = tk.Radiobutton(
+            master=self._frame,
+            text="Australia",
+            variable=self._area_var,
+            value="Australia",
+            width=25,
+            height=3,
+            background="#000fff000",
+            foreground="black",
+            command=self._select_area
+        )
+
+        america = tk.Radiobutton(
+            master=self._frame,
+            text="Etelä- ja Pohjois-Amerikka",
+            variable=self._area_var,
+            value="Amerikka",
+            width=25,
+            height=3,
+            background="#000fff000",
+            foreground="black",
+            command=self._select_area
+        )
+
+        europe = tk.Radiobutton(
+            master=self._frame,
+            text="Eurooppa",
+            variable=self._area_var,
+            value="Eurooppa",
+            width=25,
+            height=3,
+            background="#000fff000",
+            foreground="black",
+            command=self._select_area
+        )
+
+        all = tk.Radiobutton(
+            master=self._frame,
+            text="Kaikki",
+            variable=self._area_var,
+            value="Maailma",
+            width=25,
+            height=3,
+            background="#000fff000",
+            foreground="black",
+            command=self._select_area
+        )
+
+        scores_button = tk.Button(
+            master=self._frame,
+            text="TOP PISTEET",
+            width=15,
+            height=5,
+            background="grey",
+            foreground="black",
+            command=self._show_scores
+        )
+
+        ready_button = tk.Button(
+            master=self._frame,
+            text="VALMISTA",
             width=15,
             height=5,
             background="grey",
@@ -104,19 +201,37 @@ class StartView:
             command=self._confirm
         )
 
-        bg_label.grid(row=0, column=0, columnspan=5, rowspan=6)
-        name_label.grid(row=1, column=2, rowspan=2, pady=45)
-        self._player_name_entry .grid(row=2, column=2, sticky=constants.S)
-        instr_label.grid(row=3, column=2, sticky=constants.S)
-        option_easy.grid(row=4, column=1, sticky=constants.E, pady=60)
-        option_normal.grid(row=4, column=2, pady=60)
-        option_hard.grid(row=4, column=3, sticky=constants.W, pady=60)
-        button.grid(row=5, column=2, columnspan=1, pady=40)
+        bg_label.grid(row=0, column=0, columnspan=6, rowspan=9)
+        name_label.grid(row=1, column=1, pady=45, sticky=constants.E)
+        self._player_name_entry.grid(row=1, column=3, columnspan=2)
 
-    def _select(self):
-        self._level = int(self._var.get())
+        level_label.grid(row=3, column=1, pady=45, sticky=constants.S)        
+
+        option_easy.grid(row=4, column=1,  sticky=constants.N)
+        option_normal.grid(row=4, column=1,  pady=55)
+        option_hard.grid(row=4, column=1,  sticky=constants.S)
+
+        area_label.grid(row=3, column=4, columnspan=2, pady=45, sticky=constants.S)
+
+        asia.grid(row=4, column=4, sticky=constants.N)
+        africa.grid(row=4, column=4, pady=55)
+        australia.grid(row=4, column=4, sticky=constants.S)
+        america.grid(row=4, column=5, sticky=constants.N)
+        europe.grid(row=4, column=5, pady=55)
+        all.grid(row=4, column=5, sticky=constants.S)
+
+        scores_button.grid(row=5, column=1,  pady=40, sticky=constants.S)
+        ready_button.grid(row=5, column=5,   pady=40, sticky=constants.SW)
+
+    def _select_level(self):
+        self._level = int(self._level_var.get())
+    def _select_area(self):
+        self._area = str(self._area_var.get())
 
     def _confirm(self):
         if self._player_name_entry.get() != "":
             self._player_name = self._player_name_entry.get()
-        self._handle_show_ready_view(self._player_name, self._level)
+        self._handle_show_ready_view(self._player_name, self._level, self._area)
+
+    def _show_scores(self):
+        self._handle_show_score_view(GameService(3, "Pelaaja 1", "Maailma"))

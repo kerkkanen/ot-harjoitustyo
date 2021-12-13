@@ -16,5 +16,7 @@ Päivä | Aika | Mitä tein
 6.12. |   6  | Toiminnaliisuden kytkemistä käyttöliittymään, testien tekoa ja vanhojen testien refaktorointia
 7.12. |   7  | Sekvenssikaavion teko, toiminnallisuuden rakentelua käyttöliittymään, vaikeustasojen rakentaminen, releasen teko
 8.12. |   4  | Ongelmakohtien ratkomista, pistelaskun päivitys ja pistetilaston teko
+13.12.|   4  | Testikattavuuden kasvattamista, dokumentaation tekoa, docstringien kirjaamista
+13.12.|   4  | Pelialuevalinnan toiminnallisuuden rakentamista, käyttöliittymän viilausta
 
-Yhteensä 38 tuntia
+Yhteensä 46 tuntia

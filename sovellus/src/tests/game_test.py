@@ -4,7 +4,7 @@ from services.gameservice import GameService
 
 class TestGame(unittest.TestCase):
     def setUp(self):
-        self.game = GameService(6, "Kisu")
+        self.game = GameService(6, "Kisu", "all")
 
     def test_question_creation_works(self):
         self.game.create_question()

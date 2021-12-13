@@ -41,11 +41,12 @@ class UI:
 
         self._current_view = StartView(
             self._root,
-            self._show_ready_view
+            self._show_ready_view,
+            self._show_score_view
         )
         self._current_view.pack()
 
-    def _show_ready_view(self, player_name, game_level):
+    def _show_ready_view(self, player_name, game_level, game_area):
         """Asettaa peliin valmistautumisnäkymän näkyville. 
         """
         self._hide_current_view()
@@ -57,7 +58,8 @@ class UI:
             self._show_normal_game_view,
             self._show_hard_game_view,
             player_name,
-            game_level
+            game_level,
+            game_area
         )
         self._current_view.pack()
 

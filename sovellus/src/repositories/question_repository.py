@@ -25,12 +25,12 @@ class QuestionRepository:
         with open(self._file_path, encoding="utf8") as file:
             for row in file:
                 parts = row.split(",")
-                countries_n_capitals[parts[0]] = parts[1]
+                countries_n_capitals[parts[0]] = [parts[1], parts[2].strip()]
 
         return countries_n_capitals
 
-    def countries_list(self, countries_n_capitals):
-        """Listaa maat.
+    def countries_list(self, countries_n_capitals, area):
+        """Listaa maat pelialueen mukaan.
 
         Args:
             countries_n_capitals (list): Lista maista
@@ -39,9 +39,13 @@ class QuestionRepository:
             list: Lista, jossa kaikki maat
         """
         country_list = []
-        for country in countries_n_capitals:
-            country_list.append(country)
-
+        if area == "Maailma":
+            for country in countries_n_capitals:
+                country_list.append(country)
+        else:
+            for country in countries_n_capitals:
+                if countries_n_capitals[country][1] == area:
+                    country_list.append(country)
         return country_list
 
 

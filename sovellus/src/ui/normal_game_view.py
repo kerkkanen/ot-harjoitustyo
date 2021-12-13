@@ -138,7 +138,7 @@ class NormalGameView:
 
         bg_label.grid(row=0, column=2, columnspan=4, rowspan=4)
         name_label.grid(row=0, column=2, columnspan=4,
-                        pady=45, sticky=constants.[summary]N)
+                        pady=45, sticky=constants.N)
         country_label.grid(row=0, column=2, columnspan=4,
                            pady=100, sticky=constants.S)
         st_button.grid(row=1, column=2, columnspan=4)

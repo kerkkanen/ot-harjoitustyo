@@ -12,7 +12,8 @@ class ReadyView:
         handle_show_normal_game_view,
         handle_show_hard_game_view,
         player_name,
-        game_level
+        game_level,
+        game_area
     ):
 
         self._root = root
@@ -22,6 +23,7 @@ class ReadyView:
         self._handle_show_hard_game_view = handle_show_hard_game_view
         self._player_name = player_name
         self._game_level = game_level
+        self._game_area = game_area
         self._frame = None
 
         self._initialize()
@@ -41,10 +43,11 @@ class ReadyView:
             width=120,
             height=45
         )
+        self._player_name_entry = None
 
         info_label = tk.Label(
             master=self._frame,
-            text=f"Nimimerkkisi: {self._player_name}\n Pelin vaikeustaso: {self._game_level} vastausvaihtoehtoa",
+            text=f"Nimimerkkisi: {self._player_name}\n Pelin vaikeustaso: {self._game_level} vastausvaihtoehtoa\nPelialue: {self._game_area}",
             foreground="black",
             background="orange",
             width=50,
@@ -77,7 +80,7 @@ class ReadyView:
         start_button.grid(row=5, column=3, columnspan=1, pady=40)
 
     def _start(self):
-        game = GameService(self._game_level, self._player_name)
+        game = GameService(self._game_level, self._player_name, self._game_area)
 
         if self._game_level == 2:
             self._handle_show_easy_game_view(game)
