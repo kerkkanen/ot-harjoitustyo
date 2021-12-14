@@ -12,7 +12,7 @@ Pääkaupunkitietovisa, jossa voi harjoitella eri mantereiden tai koko maailman 
 * [Vaatimusmäärittely](https://github.com/kerkkanen/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
 * [Arkkitehtuuri](https://github.com/kerkkanen/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.md)
 * [Käyttöohje](https://github.com/kerkkanen/ot-harjoitustyo/blob/main/dokumentaatio/kayttoohje.md)
-* [Tuntikirjanpito](https.://github.com/kerkkanen/ot-harjoitustyo/blob/main/dokumentaatio/kirjanpito.md)
+* [Tuntikirjanpito](https://github.com/kerkkanen/ot-harjoitustyo/blob/main/dokumentaatio/kirjanpito.md)
 
 ## Asennus
 
