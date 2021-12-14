@@ -2,11 +2,11 @@
 
 ## Rakenne
 
-Ohjelma rakentuu kolmelle kerrokselle: käyttöliittymä, logiikkapalvelut ja repositoriot.
+Ohjelma on rakennettu kolmelle kerrokselle: käyttöliittymä, logiikkapalvelut ja repositoriot.
 
-![Pakkauskaavio](pakkauskaavio.png)
+![Rakenne](packing.png)
 
-Kansio ui sisältää käyttöliittymästä, services logiikasta ja repositories tietojen tallennuksesta vastaavan koodin. Entities sisältää sovelluksen käyttämiä tietokohteita.
+Koodi on pakattu hakemistoihin käyttötarkoituksen mukaan: ui sisältää käyttöliittymän, services sovelluslogiikan ja repositories tiedon lataamisen ja tallettamisen käsittävän koodin. Entities sisältää sovelluksen käyttämiä tietokohteita.
 
 ## Käyttöliittymä
 
@@ -16,7 +16,7 @@ Käyttöliittymä sisältää kuusi erillistä näkymää:
 * Kolmen vaikeustason pelinäkymät
 * Parhaat pisteet
 
-Kaikki näkymät on toteutettu omina luokkina. Ui-luokka huolehtii yksi kerrallaan näkyvissä olevien näkymien vaihdosta. Käyttöliittymä on eroteltu sovelluslogiikasta, jota hoitaa luokka GameService.
+Kaikki näkymät on toteutettu omina luokkinaan. Ui-luokka huolehtii yksi kerrallaan näkyvissä olevien näkymien vaihdosta. Käyttöliittymä on eroteltu sovelluslogiikasta, jota hoitaa luokka GameService.
 
 ## Sovelluslogiikka
 
@@ -30,6 +30,8 @@ GameService vastaa kaikesta peliin ja pisteisiin liittyvästä logiikasta. Luokk
 
 GameServicella on yhteys luokkiin QuestionRepository ja PlayerRepository, joiden kautta haetaan tiedot kysymyksiin ja hoidetaan pistetilaston haku ja talletus. Luokkien toteutus injektoidaan sovelluslogiikalle konstruktorikutsun yhteydessä.
 
+![Luokkakaavio][luokkakaavio.png)
+
 ## Tietojen tallennus
 
 PlayerRepository-luokka huolehtii pisteiden talletuksesta CSV-tiedostoon. Molemmat repository-luokat myös lukevat tietoa CSV-tiedostoista.
@@ -37,8 +39,12 @@ PlayerRepository-luokka huolehtii pisteiden talletuksesta CSV-tiedostoon. Molemm
 
 ## Päätoiminnallisuudet
 
-Päänäkmyässä pelaaja voi syöttää oman nimimerkin ja valita pelin vaikeustason (2, 3 tai 6 vastausvaihtoehtoa). Jos tiedot jättää tyhjiksi, nimeksi tulee Pelaaja 1 ja vaikeustasoksi 3. Seuraavassa näkymäsäs vahvistetaan valinnat painamalla "Aloita peli" tai palaamalla aloitusnäkmyään. Peli alkaa ja kestää 10 kierrosta ellei pelaaja keskeytä peliä aiemmin. Pelinäkymässä kutsutaan GameServiceä, jonka kautta luodaan uusi kysymys ja napin painalluksesta tarkistetaan vastaus.
+Kahdessa aloitusnäkymässä valitaan pelin reunaehdot (ensimmäisessä perustiedot ja toisessa pelitapa). Pelaajan painettua ALOITA-näppäintä siirrytään pelinäkymään.  Pelinäkymässä kutsutaan GameServiceä, jonka kautta luodaan uusi kysymys ja napin painalluksesta tarkistetaan vastaus. Palaute vastauksesta (oikein/väärin) tulee vastausvaihtoehdon klikkauksen jälkeen tekstilaatikossa näkyviin. Peruspelissä laatikon nappivahtoehtoja yes tai no klikkaamalla peli joko jatkuu tai päättyy. Pelin lopuksi pelaajan pisteet tulevat näkyviin infotekstilaatikkoon. OK klikattuaan siirrytään parhaat pisteet -näkymään ja pelaaja voi palata alkunäkymään klikkaamalla "PELAA UUDELLEEN".
 
-![Sekvenssikaavio](sekvenssikaavio.png)
+Pelin aloittamisen ja yhden kysymyksen pelaamisen sovelluslogiikka:
 
-Palaute vastauksesta (oikein/väärin) tulee vastausvaihtoehdon klikkauksen jälkeen tekstilaatikossa näkyviin. Laatikos on nappivahtoehdot yes ja no, joita klikkaamalla peli joko jatkuu tai päättyy. Pelin lopuksi pelaajan pisteet tulevat näkyviin infotekstilaatikkoon. OK klikattuaan näykviin tulee parhaat pisteet -tilasto ja pelaaja voi palata alkunäkymään klikkaamalla "Pelaa uudelleen".
+![Sovelluslogiikka](pelilogiikka.png)
+
+## Ohjelman rakenteeseen jääneet heikkoudet
+
+Graafisen sovellusliittymän pelinäkymissä on melko paljonkin toisteista koodia, jota olisi voinut toteuttaa kaikille kolmelle peliluokalle yhteisenäkin.
