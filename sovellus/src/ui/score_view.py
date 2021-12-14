@@ -80,7 +80,7 @@ class ScoreView:
 
         button = tk.Button(
             master=self._frame,
-            text="Pelaa uudelleen",
+            text="PELAA UUDELLEEN",
             width=15,
             height=5,
             background="grey",

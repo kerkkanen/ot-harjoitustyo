@@ -182,7 +182,7 @@ class StartView:
 
         scores_button = tk.Button(
             master=self._frame,
-            text="TOP PISTEET",
+            text="TOP-PISTEET",
             width=15,
             height=5,
             background="grey",
