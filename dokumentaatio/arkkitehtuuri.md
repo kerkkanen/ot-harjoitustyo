@@ -10,10 +10,10 @@ Koodi on pakattu hakemistoihin käyttötarkoituksen mukaan: ui sisältää käyt
 
 ## Käyttöliittymä
 
-Käyttöliittymä sisältää kuusi erillistä näkymää:
+Käyttöliittymä sisältää neljä erillistä näkymää:
 * Aloitus
 * Valmiina pelin aloitukseen
-* Kolmen vaikeustason pelinäkymät
+* Kolmen vaikeustason pelinäkymä, jossa nappien määrä vaihtelee
 * Parhaat pisteet
 
 Kaikki näkymät on toteutettu omina luokkinaan. Ui-luokka huolehtii yksi kerrallaan näkyvissä olevien näkymien vaihdosta. Käyttöliittymä on eroteltu sovelluslogiikasta, jota hoitaa luokka GameService.
@@ -47,4 +47,4 @@ Pelin aloittamisen ja yhden kysymyksen pelaamisen sovelluslogiikka:
 
 ## Ohjelman rakenteeseen jääneet heikkoudet
 
-Graafisen sovellusliittymän pelinäkymissä on melko paljonkin toisteista koodia, jota olisi voinut toteuttaa kaikille kolmelle peliluokalle yhteisenäkin.
+Graafisen käyttöliittymän pelinäkymään jäi jonkin verran toisteista koodia.

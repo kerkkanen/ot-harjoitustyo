@@ -63,7 +63,6 @@ class StartView:
             height=5
         )
 
-
         area_label = tk.Label(
             master=self._frame,
             text="Pelialue:",
@@ -109,12 +108,6 @@ class StartView:
             command=self._select_level
         )
 
-        #area_box = ttk.Combobox(
-         #   master=self._frame,
-          #  textvariable=self._area_var
-           # )
-        #area_box['values'] = ('Aasia', 'Afrikka', 'Eurooppa', 'Etelä- ja Pohjois-Amerikka', 'Australia', 'Koko maailma')
-
         asia = tk.Radiobutton(
             master=self._frame,
             text="Aasia",
@@ -138,7 +131,6 @@ class StartView:
             foreground="black",
             command=self._select_area
         )
-    
 
         australia = tk.Radiobutton(
             master=self._frame,
@@ -212,13 +204,14 @@ class StartView:
         name_label.grid(row=1, column=1, pady=45, sticky=constants.E)
         self._player_name_entry.grid(row=1, column=3, columnspan=2)
 
-        level_label.grid(row=3, column=1, pady=45, sticky=constants.S)        
+        level_label.grid(row=3, column=1, pady=45, sticky=constants.S)
 
         option_easy.grid(row=4, column=1,  sticky=constants.N)
         option_normal.grid(row=4, column=1,  pady=55)
         option_hard.grid(row=4, column=1,  sticky=constants.S)
 
-        area_label.grid(row=3, column=4, columnspan=2, pady=45, sticky=constants.S)
+        area_label.grid(row=3, column=4, columnspan=2,
+                        pady=45, sticky=constants.S)
 
         asia.grid(row=4, column=4, sticky=constants.N)
         africa.grid(row=4, column=4, pady=55)
@@ -232,13 +225,16 @@ class StartView:
 
     def _select_level(self):
         self._level = int(self._level_var.get())
+
     def _select_area(self):
         self._area = str(self._area_var.get())
 
     def _confirm(self):
         if self._player_name_entry.get() != "":
             self._player_name = self._player_name_entry.get()
-        self._handle_show_ready_view(self._player_name, self._level, self._area)
+        self._handle_show_ready_view(
+            self._player_name, self._level, self._area)
 
     def _show_scores(self):
-        self._handle_show_score_view(GameService(3, self._player_name, self._area))
+        self._handle_show_score_view(
+            GameService(3, self._player_name, self._area))

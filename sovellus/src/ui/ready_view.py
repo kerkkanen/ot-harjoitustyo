@@ -8,9 +8,7 @@ class ReadyView:
     def __init__(
         self, root,
         handle_show_start_view,
-        handle_show_easy_game_view,
-        handle_show_normal_game_view,
-        handle_show_hard_game_view,
+        handle_show_game_view,
         player_name,
         game_level,
         game_area
@@ -18,9 +16,7 @@ class ReadyView:
 
         self._root = root
         self._handle_show_start_view = handle_show_start_view
-        self._handle_show_easy_game_view = handle_show_easy_game_view
-        self._handle_show_normal_game_view = handle_show_normal_game_view
-        self._handle_show_hard_game_view = handle_show_hard_game_view
+        self._handle_show_game_view = handle_show_game_view
         self._player_name = player_name
         self._game_level = game_level
         self._game_area = game_area
@@ -86,7 +82,7 @@ class ReadyView:
         )
 
         bg_label.grid(row=0, column=0, columnspan=8, rowspan=6)
-        info_label.grid(row=1, column=2, rowspan=1, columnspan=2, pady=45)        
+        info_label.grid(row=1, column=2, rowspan=1, columnspan=2, pady=45)
         start_sudden_death_button.grid(row=4, column=1, columnspan=1, pady=40)
         start_rounds_button.grid(row=4, column=4, columnspan=1, pady=40)
         return_button.grid(row=5, column=2, columnspan=2, pady=40)
@@ -96,11 +92,6 @@ class ReadyView:
         self._start()
 
     def _start(self):
-        game = GameService(self._game_level, self._player_name, self._game_area)
-
-        if self._game_level == 2:
-            self._handle_show_easy_game_view(game, self._sudden_death)
-        elif self._game_level == 3:
-            self._handle_show_normal_game_view(game, self._sudden_death)
-        else:
-            self._handle_show_hard_game_view(game, self._sudden_death)
+        game = GameService(
+            self._game_level, self._player_name, self._game_area)
+        self._handle_show_game_view(game, self._sudden_death)

@@ -107,13 +107,16 @@ class GameService:
     def player_score(self):
         return self._player.score()
 
+    def level(self):
+        return self._level
+
     def save_score(self):
         """Kutsuu player-repositorion pisteitä tiedostoon kirjoittavaa metodia.
         """
         self._player_repository.write_highscores(
-            self.player_name(), str(self.player_score()), self.level(), self._area)
+            self.player_name(), str(self.player_score()), self.level_to_words(), self._area)
 
-    def level(self):
+    def level_to_words(self):
         """Muuntaa pelitason sanalliseen muotoon.
 
         Returns:

@@ -20,5 +20,6 @@ Päivä | Aika | Mitä tein
 13.12.|   4  | Pelialuevalinnan toiminnallisuuden rakentamista, käyttöliittymän viilausta
 13.12.|   2  | Toiminnallisuuden lisäämistä ja käyttöliittymän säätöä
 14.12.|   1  | Arkkitehtuurin ja ohjeistuksen laatimista.
+14.12.|   2  | Käyttöliittymän tiivistämistä kolmesta pelinäkymästä yhteen.
 
-Yhteensä 48 tuntia
+Yhteensä 49 tuntia

@@ -1,9 +1,7 @@
 from ui.score_view import ScoreView
 from ui.start_view import StartView
 from ui.ready_view import ReadyView
-from ui.easy_game_view import EasyGameView
-from ui.normal_game_view import NormalGameView
-from ui.hard_game_view import HardGameView
+from ui.game_view import GameView
 from ui.score_view import ScoreView
 from services.gameservice import GameService
 
@@ -54,49 +52,19 @@ class UI:
         self._current_view = ReadyView(
             self._root,
             self._show_start_view,
-            self._show_easy_game_view,
-            self._show_normal_game_view,
-            self._show_hard_game_view,
+            self._show_game_view,
             player_name,
             game_level,
             game_area
         )
         self._current_view.pack()
 
-    def _show_easy_game_view(self, game, sudden_death):
-        """Asettaa kahden vastausvaihtoehdon pelinäkymän näkyville. 
+    def _show_game_view(self, game, sudden_death):
+        """Asettaa pelinäkymän näkyville. 
         """
         self._hide_current_view()
 
-        self._current_view = EasyGameView(
-            self._root,
-            self._show_score_view,
-            game,
-            sudden_death
-        )
-
-        self._current_view.pack()
-
-    def _show_normal_game_view(self, game, sudden_death):
-        """Asettaa kolmen vastausvaihtoehdon pelinäkymän näkyville. 
-        """
-        self._hide_current_view()
-
-        self._current_view = NormalGameView(
-            self._root,
-            self._show_score_view,
-            game,
-            sudden_death
-        )
-
-        self._current_view.pack()
-
-    def _show_hard_game_view(self, game, sudden_death):
-        """Asettaa kuuden vastausvaihtoehdon pelinäkymän näkyville. 
-        """
-        self._hide_current_view()
-
-        self._current_view = HardGameView(
+        self._current_view = GameView(
             self._root,
             self._show_score_view,
             game,
