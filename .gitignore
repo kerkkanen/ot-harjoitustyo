@@ -3,8 +3,12 @@
 /laskarit/viikko2/unicafe/src/__pycache__/
 /laskarit/viikko2/unicafe/.coverage
 /laskarit/viikko2/unicafe/htmlcov
-
-
+/dokumentaatio/luokkakaavio.png
+/dokumentaatio/nakyma.png
+/dokumentaatio/packing.png
+/dokumentaatio/pelilogiikka.png
+/dokumentaatio/pelilogiikka.pdf
+/dokumentaatio/sekvenssikaavio.png
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
