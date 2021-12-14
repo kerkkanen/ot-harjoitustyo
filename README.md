@@ -2,9 +2,9 @@
 
 Pelin avulla voi harjoitella maailman maiden pääkaupunkeja.
 
-## 1-release
+## Release
 
-* [1-release](https://github.com/kerkkanen/ot-harjoitustyo/releases/tag/viikko5)
+* [Toinen release](https://github.com/kerkkanen/ot-harjoitustyo/releases/tag/viikko6)
 
 ## Dokumentaatio
 
