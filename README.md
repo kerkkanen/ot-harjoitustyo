@@ -1,16 +1,18 @@
 # Pääkaupunkipeli
 
-Pelin avulla voi harjoitella maailman maiden pääkaupunkeja.
+Pääkaupunkitietovisa, jossa voi harjoitella eri mantereiden tai koko maailman maiden pääkaupunkeja kahden pelimoodin avulla.
 
-## Release
+## Releaset
 
+* [Ensimmäinen release](https://github.com/kerkkanen/ot-harjoitustyo/releases/tag/viikko5)
 * [Toinen release](https://github.com/kerkkanen/ot-harjoitustyo/releases/tag/viikko6)
 
 ## Dokumentaatio
 
 * [Vaatimusmäärittely](https://github.com/kerkkanen/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
-* [Työaikakirjanpito](https://github.com/kerkkanen/ot-harjoitustyo/blob/main/dokumentaatio/kirjanpito.md)
 * [Arkkitehtuuri](https://github.com/kerkkanen/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.md)
+* [Käyttöohje](https://github.com/kerkkanen/ot-harjoitustyo/blob/main/dokumentaatio/kayttoohje.md)
+* [Tuntikirjanpito](https.://github.com/kerkkanen/ot-harjoitustyo/blob/main/dokumentaatio/kirjanpito.md)
 
 ## Asennus
 
