@@ -286,7 +286,8 @@ class GameView:
                     self._next_round()
                 else:
                     self._end()
-            self._next_round()
+            else:
+                self._next_round()
 
     def _next_round(self):
         """Seuraavan pelikierroksen luominen.
