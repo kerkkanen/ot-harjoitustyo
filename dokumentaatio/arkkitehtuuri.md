@@ -30,7 +30,7 @@ GameService vastaa kaikesta peliin ja pisteisiin liittyvästä logiikasta. Luokk
 
 GameServicella on yhteys luokkiin QuestionRepository ja PlayerRepository, joiden kautta haetaan tiedot kysymyksiin ja hoidetaan pistetilaston haku ja talletus. Luokkien toteutus injektoidaan sovelluslogiikalle konstruktorikutsun yhteydessä.
 
-![Luokkakaavio][luokkakaavio.png)
+![Luokkakaavio][Kuvat/luokkakaavio.png)
 
 ## Tietojen tallennus
 
@@ -43,7 +43,7 @@ Kahdessa aloitusnäkymässä valitaan pelin reunaehdot (ensimmäisessä perustie
 
 Pelin aloittamisen ja yhden kysymyksen pelaamisen sovelluslogiikka:
 
-![Sovelluslogiikka](pelilogiikka.png)
+![Sovelluslogiikka](Kuvat/pelilogiikka.png)
 
 ## Ohjelman rakenteeseen jääneet heikkoudet
 
