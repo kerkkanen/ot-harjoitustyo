@@ -241,4 +241,4 @@ class StartView:
         self._handle_show_ready_view(self._player_name, self._level, self._area)
 
     def _show_scores(self):
-        self._handle_show_score_view(GameService(3, "Pelaaja 1", "Maailma"))
+        self._handle_show_score_view(GameService(3, self._player_name, self._area))
