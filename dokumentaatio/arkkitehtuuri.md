@@ -4,7 +4,7 @@
 
 Ohjelma on rakennettu kolmelle kerrokselle: käyttöliittymä, logiikkapalvelut ja repositoriot.
 
-![Rakenne](packing.png)
+![Rakenne](Kuvat/packing.png)
 
 Koodi on pakattu hakemistoihin käyttötarkoituksen mukaan: ui sisältää käyttöliittymän, services sovelluslogiikan ja repositories tiedon lataamisen ja tallettamisen käsittävän koodin. Entities sisältää sovelluksen käyttämiä tietokohteita.
 
