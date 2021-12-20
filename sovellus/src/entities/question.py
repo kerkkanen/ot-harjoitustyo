@@ -1,5 +1,5 @@
 class Question:
-    """Luokkaan tallentuu yksittäinen kysymys, oikea vastaus ja vastausvaihtoehdot.
+    """Luokkaan talletetaan pelikierroksen kysymys, oikea vastaus ja vastausvaihtoehdot.
     """
 
     def __init__(self, country, capital, options):

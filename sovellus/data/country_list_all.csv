@@ -7,7 +7,7 @@ Angola,Luanda,Afrikka
 Antigua ja Barbuda,St. John's,Amerikka
 Argentiina,Buenos Aires,Amerikka
 Armenia,Jerevan,Aasia
-Australia,Canberra,Australia
+Oseania,Canberra,Oseania
 Azerbaidžan,Baku,Aasia
 Bahama,Nassau,Amerikka
 Bahrain,Manama,Aasia
@@ -38,7 +38,7 @@ Espanja,Madrid,Eurooppa
 Etelä-Afrikka,Pretoria/Kapkaupunki,Afrikka
 Etelä-Sudan,Juba,Afrikka
 Etiopia,Addis Abeba,Afrikka
-Fidži,Suva,Australia
+Fidži,Suva,Oseania
 Filippiinit,Manila,Aasia
 Gabon,Libreville,Afrikka
 Gambia,Banjul,Afrikka
@@ -74,7 +74,7 @@ Kenia,Nairobi,Afrikka
 Keski-Afrikan tasavalta,Bangui,Afrikka
 Kiina,Peking,Aasia
 Kirgisia,Biškek,Aasia
-Kiribati,South Tarawa,Australia
+Kiribati,South Tarawa,Oseania
 Kolumbia,Bogotá,Amerikka
 Komorit,Moroni,Afrikka
 Kongon demokraattinen tasavalta,Kinshasa,Afrikka
@@ -95,7 +95,7 @@ Liberia,Monrovia,Afrikka
 Libya,Tripoli,Afrikka
 Liechtenstein,Vaduz,Eurooppa
 Liettua,Vilna,Eurooppa
-Luxemburg,Luxemburg,Eurooppa
+Luxemburg,Luxembourg,Eurooppa
 Madagaskar,Antananarivo,Afrikka
 Malawi,Lilongwe,Afrikka
 Malediivit,Malé,Aasia
@@ -103,11 +103,11 @@ Malesia,Kuala Lumpur,Aasia
 Mali,Bamako,Afrikka
 Malta,Valletta,Eurooppa
 Marokko,Rabat,Afrikka
-Marshallinsaaret,Majuro,Australia
+Marshallinsaaret,Majuro,Oseania
 Mauritania,Nouakchott,Afrikka
 Mauritius,Port Louis,Afrikka
 Meksiko,México,Amerikka
-Mikronesia,Palikir,Australia
+Mikronesia,Palikir,Oseania
 Moldova,Chișinău,Eurooppa
 Monaco,Monaco,Eurooppa
 Mongolia,Ulan Bator,Aasia
@@ -115,7 +115,7 @@ Montenegro,Podgorica,Eurooppa
 Mosambik,Maputo,Afrikka
 Myanmar,Naypyidaw,Aasia
 Namibia,Windhoek,Afrikka
-Nauru,Yaren,Australia
+Nauru,Yaren,Oseania
 Nepal,Kathmandu,Aasia
 Nicaragua,Managua,Amerikka
 Niger,Niamey,Afrikka
@@ -124,9 +124,9 @@ Norja,Oslo,Eurooppa
 Norsunluurannikko,Yamoussoukro,Afrikka
 Oman,Masqat,Aasia
 Pakistan,Islamabad,Aasia
-Palau,Ngerulmud,Australia
-Panama,Panama,Amerikka
-Papua-Uusi-Guinea,Port Moresby,Australia
+Palau,Ngerulmud,Oseania
+Panama,Panamá,Amerikka
+Papua-Uusi-Guinea,Port Moresby,Oseania
 Paraguay,Asunción,Amerikka
 Peru,Lima,Amerikka
 Pohjois-Makedonia,Skopje,Eurooppa
@@ -142,9 +142,9 @@ Saint Kitts ja Nevis,Basseterre,Amerikka
 Saint Lucia,Castries,Amerikka
 Saint Vincent ja Grenadiinit,Kingstown,Amerikka
 Saksa,Berliini,Eurooppa
-Salomonsaaret,Honiara,Australia
+Salomonsaaret,Honiara,Oseania
 Sambia,Lusaka,Afrikka
-Samoa,Apia,Australia
+Samoa,Apia,Oseania
 San Marino,San Marino,Eurooppa
 São Tomé ja Príncipe,São Tomé,Afrikka
 Saudi-Arabia,Riad,Aasia
@@ -169,22 +169,22 @@ Tansania,Dar es Salaam,Afrikka
 Tanska,Kööpenhamina,Eurooppa
 Thaimaa,Bangkok,Aasia
 Togo,Lomé,Afrikka
-Tonga,Nukuʻalofa,Australia
+Tonga,Nukuʻalofa,Oseania
 Trinidad ja Tobago,Port of Spain,Amerikka
 Tšad,N'Djamena,Afrikka
 Tšekki,Praha,Eurooppa
 Tunisia,Tunis,Afrikka
 Turkki,Ankara,Eurooppa
 Turkmenistan,Ašgabat,Aasia
-Tuvalu,Funafuti,Australia
+Tuvalu,Funafuti,Oseania
 Uganda,Kampala,Afrikka
 Ukraina,Kiova,Eurooppa
 Unkari,Budapest,Eurooppa
 Uruguay,Montevideo,Amerikka
-Uusi-Seelanti,Wellington,Australia
+Uusi-Seelanti,Wellington,Oseania
 Uzbekistan,Taškent,Aasia
 Valko-Venäjä,Minsk,Eurooppa
-Vanuatu,Port Vila,Australia
+Vanuatu,Port Vila,Oseania
 Vatikaani,Vatikaani,Eurooppa
 Venezuela,Caracas,Amerikka
 Venäjä,Moskova,Eurooppa

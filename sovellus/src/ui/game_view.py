@@ -7,30 +7,14 @@ from services.gameservice import GameService
 
 
 class GameView:
-    """Luokan konstruktori, josta käynnistetään näkymän luonti.
 
-        Args:
-            root (tkInter]): Käyttöliittymän juuri
-            handle_show_score_view (function): Kutsuu pistenäkymän käynnistävää funktiota
-            game (class): GameService, jossa tiedot pelistä
-            sudden_death (boolean): Tieto, pelataanko niin, että peli päättyy väärästä vastauksesta
-
-        Attributes:
-            frame: Näkymä, johon elementit asetetaan
-            start/end_time: Vastaamisen alku- ja loppuaika
-            box/endbox: Tekstilaatikot vastauspalautteelle ja pelin loppumiselle
-            country: Kysytty maa-teksti"Pelaaja 1"
-            ans_o/t/t: Vastausvaihtoehdot
-            rounds: Pelattujen kierrosten lukumäärä
-        """
-
-    def __init__(self, root, handle_show_score_view, game, sudden_death):
+    def __init__(self, root, handle_show_score_view, game):
         self._root = root
         self._handle_show_score_view = handle_show_score_view
         self._frame = None
         self._game = game
         self._level = self._game.level()
-        self._sudden_death = sudden_death
+        self._sudden_death = self._game.sudden_death()
 
         self._start_time = None
         self._end_time = None
@@ -64,8 +48,6 @@ class GameView:
         self._frame.destroy()
 
     def _run_game(self):
-        """Luo uuden kysymyksen ja tallettaa kysytyn maan ja vaihtoehdot oikeisiin muuttujiin pelin vaikeustason mukaan.
-        """
 
         self._game.create_question()
 
@@ -80,6 +62,7 @@ class GameView:
         if self._level >= 3:
             self._ans_three = self._game.option()
             self._third_option.set(self._ans_three)
+
         if self._level == 6:
             self._ans_four = self._game.option()
             self._ans_five = self._game.option()
@@ -89,8 +72,7 @@ class GameView:
             self._sixth_option.set(self._ans_six)
 
     def _initialize(self):
-        """Alustaa näkymän: luo elementit, asettaa muuttujat niihin ja elementit paikoilleen.
-        """
+
         self._start_time = time.time()
 
         self._run_game()
@@ -107,7 +89,8 @@ class GameView:
         name_label = tk.Label(
             master=self._frame,
             text="Valitse oikea pääkaupunki maalle:",
-            foreground="black",
+            font=(28),
+            foreground="white",
             background="green",
             width=35,
             height=5
@@ -116,18 +99,20 @@ class GameView:
         country_label = tk.Label(
             master=self._frame,
             textvariable=self._country,
+            font=("bold", 16),
             foreground="black",
             background="orange",
-            width=35,
+            width=25,
             height=5
         )
 
         st_button = tk.Button(
             master=self._frame,
             textvariable=self._first_option,
-            width=35,
+            width=25,
+            font=(18),
             height=5,
-            background="white",
+            background="#000fff000",
             foreground="black",
             command=self._select_st_answer
         )
@@ -135,9 +120,10 @@ class GameView:
         nd_button = tk.Button(
             master=self._frame,
             textvariable=self._second_option,
-            width=35,
+            font=(18),
+            width=25,
             height=5,
-            background="white",
+            background="#000fff000",
             foreground="black",
             command=self._select_nd_answer
         )
@@ -145,9 +131,10 @@ class GameView:
         rd_button = tk.Button(
             master=self._frame,
             textvariable=self._third_option,
-            width=35,
+            font=(18),
+            width=25,
             height=5,
-            background="white",
+            background="#000fff000",
             foreground="black",
             command=self._select_rd_answer
         )
@@ -155,9 +142,10 @@ class GameView:
         rth_button = tk.Button(
             master=self._frame,
             textvariable=self._fourth_option,
-            width=35,
+            font=(18),
+            width=25,
             height=5,
-            background="white",
+            background="#000fff000",
             foreground="black",
             command=self._select_rth_answer
         )
@@ -165,9 +153,10 @@ class GameView:
         fth_button = tk.Button(
             master=self._frame,
             textvariable=self._fifth_option,
-            width=35,
+            font=(18),
+            width=25,
             height=5,
-            background="white",
+            background="#000fff000",
             foreground="black",
             command=self._select_fth_answer
         )
@@ -175,9 +164,10 @@ class GameView:
         xth_button = tk.Button(
             master=self._frame,
             textvariable=self._sixth_option,
-            width=35,
+            font=(18),
+            width=25,
             height=5,
-            background="white",
+            background="#000fff000",
             foreground="black",
             command=self._select_xth_answer
         )
@@ -205,19 +195,15 @@ class GameView:
                             pady=45, sticky=constants.N)
             country_label.grid(row=0, column=3, columnspan=4,
                                pady=100, sticky=constants.S)
-            st_button.grid(row=1, column=2, columnspan=4)
-            nd_button.grid(row=1, column=4, columnspan=4)
-            rd_button.grid(row=2, column=2, columnspan=4)
-            rth_button.grid(row=2, column=4, columnspan=4)
-            fth_button.grid(row=3, column=2, columnspan=4)
-            xth_button.grid(row=3, column=4, columnspan=4)
+            st_button.grid(row=1, column=3, columnspan=2)
+            nd_button.grid(row=1, column=5, columnspan=2, sticky=constants.W)
+            rd_button.grid(row=2, column=3, columnspan=2)
+            rth_button.grid(row=2, column=5, columnspan=2, sticky=constants.W)
+            fth_button.grid(row=3, column=3, columnspan=2)
+            xth_button.grid(row=3, column=5, columnspan=2, sticky=constants.W)
 
     def _select_st_answer(self):
-        """Toiminta, kun pelaaja on klikannut vastausvaihtoehtoa.
-            Otetaan vastausaika talteen. Kutsutaan vastauspalautelaatikkoa,
-            jolle syötetään oikean vastauksen tarkistava funktio ja vastausaika.
-            (select_answerit on kytketty eri nappeihin)
-        """
+
         self._end_time = time.time()
         ans_time = self._end_time - self._start_time
         self._feedback_message(
@@ -254,13 +240,7 @@ class GameView:
             self._game.check_capital(self._ans_six, ans_time))
 
     def _feedback_message(self, answer):
-        """Avaa messageboxin, jossa palaute väärästä ja oikeasta vastauksesta.
-           Pelaajalla mahdollisuus jatkaa peliä (yes)
-           tai lopettaa ennen kierrosmäärän päättymistä (no):
 
-        Args:
-            answer (boolean): Tieto, onko pelaajan vastaus oikein vai väärin
-        """
         if answer:
             click = self._box.askquestion("Oikein", "Hienoa!\n\nJatketaanko?")
             self._box_click(click)
@@ -272,11 +252,7 @@ class GameView:
             self._end()
 
     def _box_click(self, clicked):
-        """Napinpainalluksen käsittelijä.
 
-        Args:
-            clicked (str): Jatketaanko peliä, vai lopetetaanko kesken
-        """
         if clicked == "no":
             self._end()
         if clicked == "yes":
@@ -290,19 +266,22 @@ class GameView:
                 self._next_round()
 
     def _next_round(self):
-        """Seuraavan pelikierroksen luominen.
-        """
-        self.destroy()
-        self._initialize()
-        self.pack()
+
+        if self._game.rounds_left():
+            self.destroy()
+            self._initialize()
+            self.pack()
+        else:
+            self._end()
 
     def _end(self):
-        """Pelin päättäminen/päättyminen. Messagebox näyttää pelaajan pisteet.
-           Kutsutaan pistetilastonäkymää.
-        """
+
         self._game.save_score()
-        self._end_box.showinfo("Peli päättyi!",
-                               f"Pelaajan {self._game.player_name()} pisteet:\n              {self._game.player_score()}")
+        if self._sudden_death:
+            info = f"Oikea vastaus on {self._game.capital()}\n{self._game.player_name()} tiesi\n{self._game.player_score()} pääkaupunkia"
+        else:
+            info = f"Pelaajan {self._game.player_name()} pisteet:\n              {self._game.player_score()}"
+        self._end_box.showinfo("Peli päättyi!", info)
         self._handle_score_view()
 
     def _handle_score_view(self):
