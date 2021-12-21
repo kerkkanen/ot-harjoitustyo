@@ -16,13 +16,13 @@ Testikattavuus on 93 %. Mukana ei ole käyttöliittymäluokkien testausta.
 
 ## Järjestelmätestaus
 
-Sovelluksen testaaminen on suoritettu manuaalisesti.
+Sovelluksen testaaminen on suoritettu manuaalisesti. Testausta on tehty monipuolisesti erilaisilla peliasetusvalinnoilla.
 
 ### Asennus ja konfigurointi
 
 Sovellusta on testattu Linux-ympäristössä. Testauksen aikana myös eri konfiguraatioita on kokeiltu *.env*-tiedoston kautta.
 
-### Toiminallisuudet
+### Toiminnallisuudet
 
 Märittelydokumenttiin listatut toiminnallisuudet on testattu.
 
