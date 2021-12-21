@@ -21,7 +21,14 @@ class TestScore(unittest.TestCase):
         self.normal_game.create_question()
         capital = self.normal_game.capital()
         self.normal_game.check_capital(capital, 3)
-        self.assertEqual(self.normal_game._player.score(), 145)
+        self.assertEqual(self.normal_game._player.score(), 170)
+
+    def test_scores_add_correctly(self):
+        self.normal_game._player.add_score(1, False)
+        self.normal_game._player.add_score(2, False)
+        self.normal_game._player.add_score(4, False)
+        self.normal_game._player.add_score(5, False)
+        self.assertEqual(self.normal_game._player.score(), 255)
 
     def test_sudden_death_scores_are_saved(self):
         self.sudden_death.create_question()

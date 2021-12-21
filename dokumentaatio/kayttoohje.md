@@ -55,7 +55,7 @@ Peruspelissä pelataan kymmenen kierrosta, ellei pelaaja valitse pelin lopettami
 
 ![Oikea vastaus](Kuvat/correct.png)
 
-Viimeisen kysymyksen vastauksen (tai äkkikuolemassa väärän vastauksen) jälkeen peli päättyy:
+Viimeisen kysymyksen vastauksen (tai äkkikuolemassa väärän vastauksen tai alueen kysymysten loppumisen) jälkeen peli päättyy:
 
 ![Väärä vastaus peruspelissä](Kuvat/incorrect.png)   ![Väärä vastaus äkkikuolemassa](Kuvat/sudden_death.png)
 

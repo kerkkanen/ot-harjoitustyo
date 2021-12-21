@@ -131,6 +131,12 @@ class GameService:
         return self._sudden_death
 
     def rounds_left(self):
+        """Tarkistaa, milloin kaikki maat on käyty läpi.
+
+        Returns:
+            bool: True, jos maita on jäljellä,
+            False, jos kaikki alueen maat on käyty läpi.
+        """
         return len(self._asked) < len(self._country_list)
 
     def save_score(self):

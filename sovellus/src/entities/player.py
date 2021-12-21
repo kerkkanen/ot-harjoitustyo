@@ -21,8 +21,8 @@ class Player:
         return self._score
 
     def add_score(self, time, sudden_death):
-        """Lisää pelaajalle pisteitä oikeasta vastauksesta
-            käytetyn vastausajan mukaan tai yhden pisteen oikeasta maasta.
+        """Lisää pelaajalle pisteitä oikeasta vastauksesta käytetyn vastausajan mukaan
+            tai yhden pisteen oikeasta maasta.
         """
 
         if sudden_death:
@@ -31,22 +31,22 @@ class Player:
             if time < 0.8:
                 self._score += 150
             elif time < 1:
-                self._score += 100
+                self._score += 135
             elif time < 1.2:
-                self._score += 90
+                self._score += 120
             elif time < 1.5:
-                self._score += 85
+                self._score += 105
             elif time <= 2:
-                self._score += 70
+                self._score += 90
             elif time < 2.5:
-                self._score += 60
+                self._score += 75
             elif time <= 3:
-                self._score += 50
+                self._score += 60
             elif time < 4:
-                self._score += 40
+                self._score += 45
             elif time < 5:
                 self._score += 30
             elif time < 6:
-                self._score += 20
+                self._score += 15
             else:
-                self._score += 10
+                self._score += 5
