@@ -51,7 +51,7 @@ Pelin alkaessa näkyviin tulee valitun tason mukainen pelinäkymä:
 
 ![Normaali-vaikeustason peli](Kuvat/game.png)
 
-Peruspelissä pelataan kymmenen kierrosta, ellei pelaaja valitse pelin lopettamista aiemmin. Vastauksen klikkaamisen jälkeen näkyviin tulee kysymyslaatikko, jossa on palaute vastauksesta. Peliä voi jatkaa valitsemalla "Yes" tai lopettaa kesken valitsemalla "No".
+Peruspelissä pelataan kymmenen kierrosta, ellei pelaaja valitse pelin lopettamista aiemmin. Vastauksen klikkaamisen jälkeen näkyviin tulee kysymyslaatikko, jossa on palaute vastauksesta. Peliä voi jatkaa valitsemalla *Yes* tai lopettaa kesken valitsemalla *No*.
 
 ![Oikea vastaus](Kuvat/correct.png)
 
