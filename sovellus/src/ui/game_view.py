@@ -14,6 +14,7 @@ class GameView:
         self._frame = None
         self._game = game
         self._level = self._game.level()
+        self._rounds = self._game.rounds()
         self._sudden_death = self._game.sudden_death()
 
         self._start_time = None
@@ -38,9 +39,7 @@ class GameView:
         self._ans_four = None
         self._ans_five = None
         self._ans_six = None
-
-        self._rounds = 10
-
+        
         self._initialize()
 
     def pack(self):

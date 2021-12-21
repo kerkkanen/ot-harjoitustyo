@@ -17,7 +17,7 @@ class GameService:
         kysymyksien luomisesta, tarkistamisesta ja pelaajan pisteitstä.
     """
 
-    def __init__(self, level, name, area, sudden_death):
+    def __init__(self, name, level, rounds, area, sudden_death):
         """Luokan konstruktori, joka luo repositoriot kysymyksille ja pelaajalle
 
         Args:
@@ -40,7 +40,8 @@ class GameService:
 
         self._question = None
         self._player = Player(name)
-        self._level = int(level)
+        self._rounds = rounds
+        self._level = level
         self._area = area
         self._sudden_death = sudden_death
 
@@ -123,6 +124,9 @@ class GameService:
 
     def player_score(self):
         return self._player.score()
+
+    def rounds(self):
+        return self._rounds
 
     def level(self):
         return self._level

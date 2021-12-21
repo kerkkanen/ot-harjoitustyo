@@ -11,11 +11,13 @@ class StartView:
         self._handle_show_ready_view = handle_show_ready_view
         self._handle_show_score_view = handle_show_score_view
         self._frame = None
+        self._rounds_var = 15
         self._level_var = 3
         self._area_var = "Maailma"
         self._player_name_entry = None
         self._player_name = "Maailmanmatkaaja"
         self._level = 3
+        self._rounds = 10
         self._area = "Maailma"
 
         self._initialize()
@@ -28,6 +30,7 @@ class StartView:
 
     def _initialize(self):
         self._frame = tk.Frame(master=self._root)
+        self._rounds_var = IntVar()
         self._level_var = IntVar()
         self._area_var = StringVar()
 
@@ -57,7 +60,7 @@ class StartView:
 
         level_label = tk.Label(
             master=self._frame,
-            text="Vaikeustaso:",
+            text="Valitse vaikeustaso\nja kierrosten määrä:",
             font=(18),
             foreground="black",
             background="orange",
@@ -67,7 +70,7 @@ class StartView:
 
         area_label = tk.Label(
             master=self._frame,
-            text="Pelialue:",
+            text="Valitse pelialue:",
             font=(18),
             foreground="black",
             background="orange",
@@ -75,6 +78,7 @@ class StartView:
             height=5
         )
 
+        self._create_rounds_buttons()
         self._create_difficulty_buttons()
         self._create_area_buttons()
         self._create_choosing_buttons()
@@ -86,6 +90,41 @@ class StartView:
         area_label.grid(row=3, column=4, columnspan=2,
                         pady=45, sticky=constants.S)
 
+    def _create_rounds_buttons(self):
+        ten = tk.Radiobutton(
+            master=self._frame,
+            text="10 kierrosta",
+            variable=self._rounds_var,
+            value=10,
+            height=2,
+            background="#000fff000",
+            foreground="black",
+            command=self._select_rounds
+        )
+        twenty = tk.Radiobutton(
+            master=self._frame,
+            text="15 kierrosta",
+            variable=self._rounds_var,
+            value=15,
+            height=2,
+            background="#000fff000",
+            foreground="black",
+            command=self._select_rounds
+        )
+        thirty = tk.Radiobutton(
+            master=self._frame,
+            text="20 kierrosta",
+            variable=self._rounds_var,
+            value=20,
+            height=2,
+            foreground="black",
+            command=self._select_rounds
+        )
+
+        ten.grid(row=4, column=1, sticky=constants.NE)
+        twenty.grid(row=4, column=1, sticky=constants.E)
+        thirty.grid(row=4, column=1, sticky=constants.SE)
+
     def _create_difficulty_buttons(self):
         option_easy = tk.Radiobutton(
             master=self._frame,
@@ -93,7 +132,7 @@ class StartView:
             variable=self._level_var,
             value=2,
             width=10,
-            height=3,
+            height=2,
             background="#000fff000",
             foreground="black",
             command=self._select_level
@@ -105,7 +144,7 @@ class StartView:
             variable=self._level_var,
             value=3,
             width=10,
-            height=3,
+            height=2,
             background="#000fff000",
             foreground="black",
             command=self._select_level
@@ -117,15 +156,15 @@ class StartView:
             variable=self._level_var,
             value=6,
             width=10,
-            height=3,
+            height=2,
             background="#000fff000",
             foreground="black",
             command=self._select_level
         )
 
-        option_easy.grid(row=4, column=1,  sticky=constants.N)
-        option_normal.grid(row=4, column=1,  pady=55)
-        option_hard.grid(row=4, column=1,  sticky=constants.S)
+        option_easy.grid(row=4, column=1,  sticky=constants.NW)
+        option_normal.grid(row=4, column=1,  pady=5, sticky=constants.W)
+        option_hard.grid(row=4, column=1,  sticky=constants.SW)
 
     def _create_area_buttons(self):
         asia = tk.Radiobutton(
@@ -232,8 +271,11 @@ class StartView:
         scores_button.grid(row=5, column=1, pady=40, sticky=constants.S)
         ready_button.grid(row=5, column=5, pady=40, sticky=constants.SW)
 
+    def _select_rounds(self):
+        self._rounds = self._rounds_var.get()
+
     def _select_level(self):
-        self._level = int(self._level_var.get())
+        self._level = self._level_var.get()
 
     def _select_area(self):
         self._area = str(self._area_var.get())
@@ -242,8 +284,8 @@ class StartView:
         if self._player_name_entry.get() != "" and len(self._player_name_entry.get()) < 20:
             self._player_name = self._player_name_entry.get()
         self._handle_show_ready_view(
-            self._player_name, self._level, self._area)
+            self._player_name, self._level, self._rounds, self._area)
 
     def _show_scores(self):
         self._handle_show_score_view(
-            GameService(3, self._player_name, self._area, False))
+            GameService(self._player_name, self._level, self._rounds,  self._area, False))

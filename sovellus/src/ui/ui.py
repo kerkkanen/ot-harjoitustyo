@@ -29,7 +29,7 @@ class UI:
         )
         self._current_view.pack()
 
-    def _show_ready_view(self, player_name, game_level, game_area):
+    def _show_ready_view(self, player_name, game_level, game_rounds, game_area):
         self._hide_current_view()
 
         self._current_view = ReadyView(
@@ -38,6 +38,7 @@ class UI:
             self._show_game_view,
             player_name,
             game_level,
+            game_rounds,
             game_area
         )
         self._current_view.pack()

@@ -11,6 +11,7 @@ class ReadyView:
         handle_show_game_view,
         player_name,
         game_level,
+        game_rounds,
         game_area
     ):
 
@@ -19,6 +20,7 @@ class ReadyView:
         self._handle_show_game_view = handle_show_game_view
         self._player_name = player_name
         self._game_level = game_level
+        self._game_rounds = game_rounds
         self._game_area = game_area
         self._sudden_death = False
         self._frame = None
@@ -44,7 +46,7 @@ class ReadyView:
 
         info_label = tk.Label(
             master=self._frame,
-            text=f"Nimimerkkisi:\n{self._player_name}\n\nPelin vaikeustaso:\n{self._game_level} vastausvaihtoehtoa\n\nPelialue:\n{self._game_area}",
+            text=f"Nimimerkkisi:\n{self._player_name}\n\nPelin vaikeustaso:\n{self._game_level} vastausvaihtoehtoa\n{self._game_rounds} kierrosta\n\nPelialue:\n{self._game_area}",
             font=(20),
             foreground="black",
             background="orange",
@@ -64,7 +66,7 @@ class ReadyView:
 
         start_rounds_button = tk.Button(
             master=self._frame,
-            text='"Turvallisesti loppuun"\n\n Peli kestää\n10 kierrosta\n\n\nALOITA',
+            text=f'"Turvallisesti loppuun"\n\n Peli kestää\n{self._game_rounds} kierrosta\n\n\nALOITA',
             font=(20),
             width=20,
             height=10,
@@ -96,4 +98,4 @@ class ReadyView:
 
     def _start(self):
         self._handle_show_game_view(GameService(
-            self._game_level, self._player_name, self._game_area, self._sudden_death))
+            self._player_name, self._game_level, self._game_rounds, self._game_area, self._sudden_death))

@@ -4,8 +4,8 @@ from services.gameservice import GameService
 
 class TestGame(unittest.TestCase):
     def setUp(self):
-        self.normal_game = GameService(6, "Maussi", "Maailma", False)
-        self.sudden_death = GameService(2, "Maussi", "Eurooppa", True)
+        self.normal_game = GameService("Maussi", 6, 10, "Maailma", False)
+        self.sudden_death = GameService("Maussi", 2, 10, "Eurooppa", True)
 
     def test_question_creation_works(self):
         self.normal_game.create_question()

@@ -6,8 +6,8 @@ from repositories.player_repository import player_repository
 class TestScore(unittest.TestCase):
     def setUp(self):
         player_repository.delete_all()
-        self.normal_game = GameService(6, "Märssy", "Maailma", False)
-        self.sudden_death = GameService(3, "Maussi", "Eurooppa", True)
+        self.normal_game = GameService("Märssy", 6, 10, "Maailma", False)
+        self.sudden_death = GameService("Maussi", 3, 10, "Eurooppa", True)
 
     def test_normal_scores_are_saved(self):
         self.normal_game.create_question()
@@ -66,7 +66,7 @@ class TestScore(unittest.TestCase):
         self.normal_game.check_capital(capital, 3)
         self.normal_game.save_score()
 
-        other_game = GameService(2, "Sisseli", "Maailma", False)
+        other_game = GameService("Sisseli",2, 10, "Maailma", False)
         other_game.create_question()
         capital = other_game.capital()
         other_game.check_capital(capital, 5)
