@@ -24,5 +24,7 @@ Päivä | Aika | Mitä tein
 20.12.|   7  | Viimeisten toiminnallisuuksien tekoa (toinen pistelista, jo kysyttyjä maita ei kysytä uudelleen), käyttöliittymän siistimistä, testien tekemistä
 21.12.|   3  | Pistelaskurin lisääminen pelinäkymään. Koodin hiomista ja testien tekemistä.
 21.12.|   2  | Dokumentaation laatimista ja päivittämistä.
+21.12.|   2  | Testausraportin laatiminen ja dokumentaation päivitys.
+21.12.|   2  | Loppuinnostuksessa viimeisten toimintojen päivitys (kierrokset), testausta, viimeistelyä.
 
-Yhteensä 61 tuntia
+Yhteensä 65 tuntia

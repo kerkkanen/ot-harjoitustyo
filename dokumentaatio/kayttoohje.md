@@ -35,7 +35,7 @@ Sovellus käynnistää aloitusnäkymän:
 
 ![Aloitusnäkymä](Kuvat/start.png)
 
-Peli on mahdollista aloittaa oletusarvoilla (nimimerkki Maailmanmatkaaja, vaikeustaso 3, koko maailma), mutta pelaaja voi valita oman nimimerkin, vaikeustason ja alueen, jolta kysymykset tulevat. Vaikeustasojen erona on vastausvaihtoehtojen määrä sekä pisteytys: tason kasvaessa pisteitä voi saada enemmän.
+Peli on mahdollista aloittaa oletusarvoilla (nimimerkki Maailmanmatkaaja, vaikeustaso 3, kierroksia 10, koko maailma), mutta pelaaja voi valita oman nimimerkin, vaikeustason, kierrosten määrän ja alueen, jolta kysymykset tulevat. Vaikeustasojen erona on vastausvaihtoehtojen määrä sekä pisteytys: tason kasvaessa pisteitä voi saada enemmän.
 
 ## Pelivalintojen vahvistaminen
 
@@ -43,7 +43,7 @@ Aloitusnäkymästä siirrytään pelivalintojen vahvistamiseen. Peli näyttää 
 
 ![Pelin aloittaminen](Kuvat/ready.png)
 
-Pelissä on valittavana kaksi pelimoodia: äkkikuolema, jossa peli päättyy väärästä vastauksesta, tai kymmenen kierroksen peruspeli. Pelin voi valita painamalla kyseisen moodin aloitusnappia. Vaihtoehtona on myös palata aloitusnäkymään.
+Pelissä on valittavana kaksi pelimoodia: äkkikuolema, jossa peli päättyy väärästä vastauksesta, tai valittujen kierrosten mukainen peruspeli. Pelin voi valita painamalla kyseisen moodin aloitusnappia. Vaihtoehtona on myös palata aloitusnäkymään.
 
 ## Pelin pelaaminen
 
@@ -51,7 +51,7 @@ Pelin alkaessa näkyviin tulee valitun tason mukainen pelinäkymä:
 
 ![Normaali-vaikeustason peli](Kuvat/game.png)
 
-Peruspelissä pelataan kymmenen kierrosta, ellei pelaaja valitse pelin lopettamista aiemmin. Vastauksen klikkaamisen jälkeen näkyviin tulee kysymyslaatikko, jossa on palaute vastauksesta. Peliä voi jatkaa valitsemalla *Yes* tai lopettaa kesken valitsemalla *No*.
+Peruspelissä pelataan valittu määrä kierroksia, ellei pelaaja valitse pelin lopettamista aiemmin. Vastauksen klikkaamisen jälkeen näkyviin tulee kysymyslaatikko, jossa on palaute vastauksesta. Peliä voi jatkaa valitsemalla *Yes* tai lopettaa kesken valitsemalla *No*.
 
 ![Oikea vastaus](Kuvat/correct.png)
 

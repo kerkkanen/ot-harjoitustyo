@@ -14,7 +14,7 @@ Sovellus koostuu neljästä eri näkymästä:
 
 ![Pelin näkymä](Kuvat/all_views.png)
 
-* Alkunäkymässä syötetään nimimerkki ja valitaan vaikeustaso sekä pelattava alue. Alkunäkymästä voi siirtyä myös pistetilastoihin.
+* Alkunäkymässä syötetään nimimerkki ja valitaan vaikeustaso, kierrosten määrä sekä pelattava alue. Alkunäkymästä voi siirtyä myös pistetilastoihin.
 *  Pelinäkymässä näkyviin tulee maa, vastausvaihtoehdot ja pisteet.
 *  Pelin päätyttyä näkyviin tulee pistetilastosivu.
 
@@ -26,12 +26,13 @@ Sovellus koostuu neljästä eri näkymästä:
 
 * Pelaaja syöttää nimimerkin ja valitsee vaikeustason
     * nimimerkin on oltava vähintään yhden merkin pituinen. Jos nimeä ei syötetä, pelataan oletusnimellä *Maailmanmatkaaja*
-    * Pelin taso säätelee vastausvaihtoehtojen määrää (kaksi, kolme, tai kuusi vaihoehtoa).
-    * Pelialueeksi, eli miltä alueelta maat valitaan, voidaan valita eri maanosa tai koko maailma.
+    * pelin taso säätelee vastausvaihtoehtojen määrää (kaksi, kolme, tai kuusi vaihoehtoa)
+    * peruspelissä pelikierroksia voi valita 10, 15 tai 20
+    * pelialueeksi, eli miltä alueelta maat valitaan, voidaan valita eri maanosa tai koko maailma
 
 * Seuraavassa näkymässä varmistetaan tehdyt pelivalinnat ja valitaan pelitapa:
-    * *Kerrasta poikki* käynnistää pelin, jossa tulee uusi kysymys, kunnes pelaaja vastaa väärin tai valitun alueen kaikki maat on kysytty.
-    * *Turvallisesti loppuun* käynnistää pelin, jossa pelataan kymmenen kysymystä.
+    * *Kerrasta poikki* käynnistää pelin, jossa tulee uusi kysymys, kunnes pelaaja vastaa väärin tai valitun alueen kaikki maat on kysytty
+    * *Turvallisesti loppuun* käynnistää pelin, jossa pelataan valittu määrä kierorksia
     * valintoja voi myös palata muuttamaan alkunäkymään
 
 * Pelinäkymässä näkyviin tulee maa, jonka pääkaupunkia kysytään:
