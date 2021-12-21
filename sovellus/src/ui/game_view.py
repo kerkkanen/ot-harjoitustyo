@@ -22,6 +22,8 @@ class GameView:
         self._box = messagebox
         self._end_box = messagebox
 
+        self._score = StringVar()
+
         self._country = StringVar()
         self._first_option = StringVar()
         self._second_option = StringVar()
@@ -55,6 +57,8 @@ class GameView:
 
         self._ans_one = self._game.option()
         self._ans_two = self._game.option()
+
+        self._score.set(self._game.player_score())
 
         self._first_option.set(self._ans_one)
         self._second_option.set(self._ans_two)
@@ -103,6 +107,16 @@ class GameView:
             foreground="black",
             background="orange",
             width=25,
+            height=5
+        )
+
+        score_label = tk.Label(
+            master=self._frame,
+            textvariable=self._score,
+            font=(16),
+            foreground="black",
+            background="orange",
+            width=15,
             height=5
         )
 
@@ -176,31 +190,34 @@ class GameView:
             bg_label.grid(row=0, column=2, columnspan=4, rowspan=4)
             name_label.grid(row=0, column=2, columnspan=4,
                             pady=45, sticky=constants.N)
+            score_label.grid(row=0, column=5)
             country_label.grid(row=0, column=2, columnspan=4,
                                pady=100, sticky=constants.S)
-            st_button.grid(row=1, column=2, columnspan=4)
-            nd_button.grid(row=3, column=2, columnspan=4)
+            st_button.grid(row=1, column=2, columnspan=4, sticky=constants.N)
+            nd_button.grid(row=3, column=2, columnspan=4, sticky=constants.N)
         elif self._level == 3:
             bg_label.grid(row=0, column=2, columnspan=4, rowspan=4)
             name_label.grid(row=0, column=2, columnspan=4,
                             pady=45, sticky=constants.N)
+            score_label.grid(row=0, column=5)
             country_label.grid(row=0, column=2, columnspan=4,
                                pady=100, sticky=constants.S)
-            st_button.grid(row=1, column=2, columnspan=4)
-            nd_button.grid(row=2, column=2, columnspan=4)
-            rd_button.grid(row=3, column=2, columnspan=4)
+            st_button.grid(row=1, column=2, columnspan=4, sticky=constants.N)
+            nd_button.grid(row=2, column=2, columnspan=4, sticky=constants.N)
+            rd_button.grid(row=3, column=2, columnspan=4, sticky=constants.N)
         else:
             bg_label.grid(row=0, column=2, columnspan=6, rowspan=6)
-            name_label.grid(row=0, column=3, columnspan=4,
+            name_label.grid(row=0, column=4, columnspan=3,
                             pady=45, sticky=constants.N)
-            country_label.grid(row=0, column=3, columnspan=4,
+            score_label.grid(row=0, column=7)
+            country_label.grid(row=0, column=4, columnspan=3,
                                pady=100, sticky=constants.S)
-            st_button.grid(row=1, column=3, columnspan=2)
-            nd_button.grid(row=1, column=5, columnspan=2, sticky=constants.W)
-            rd_button.grid(row=2, column=3, columnspan=2)
-            rth_button.grid(row=2, column=5, columnspan=2, sticky=constants.W)
-            fth_button.grid(row=3, column=3, columnspan=2)
-            xth_button.grid(row=3, column=5, columnspan=2, sticky=constants.W)
+            st_button.grid(row=1, column=3, columnspan=2, sticky=constants.E)
+            nd_button.grid(row=1, column=6, columnspan=2, sticky=constants.W)
+            rd_button.grid(row=2, column=3, columnspan=2, sticky=constants.E)
+            rth_button.grid(row=2, column=6, columnspan=2, sticky=constants.W)
+            fth_button.grid(row=3, column=3, columnspan=2, sticky=constants.E)
+            xth_button.grid(row=3, column=6, columnspan=2, sticky=constants.W)
 
     def _select_st_answer(self):
 

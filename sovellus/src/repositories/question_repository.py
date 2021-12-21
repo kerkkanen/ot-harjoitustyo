@@ -1,4 +1,3 @@
-from pathlib import Path
 from config import COUNTRIES_FILE_PATH
 
 

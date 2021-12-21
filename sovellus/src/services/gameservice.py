@@ -13,7 +13,8 @@ from repositories.player_repository import(
 
 
 class GameService:
-    """Luokka, joka huolehtii pelin logiikasta: kysymyksien luomisesta, tarkistamisesta ja pelaajan pisteitstä.
+    """Luokka, joka huolehtii pelin logiikasta:
+        kysymyksien luomisesta, tarkistamisesta ja pelaajan pisteitstä.
     """
 
     def __init__(self, level, name, area, sudden_death):
@@ -58,7 +59,8 @@ class GameService:
         self._asked.add(self._question.country())
 
     def _new_question(self):
-        """Luo uuden kysymyksen: arvotaan maa, asetetaan oikea pääkaupunki ja luodaan väärät vastausvaihtoehdot.
+        """Luo uuden kysymyksen: arvotaan maa,
+            asetetaan oikea pääkaupunki ja luodaan väärät vastausvaihtoehdot.
         """
         rndints = []
         while len(rndints) < int(self._level):
@@ -98,6 +100,10 @@ class GameService:
             bool: Onko vastaus oikein vai väärin
         """
         time = math.floor(time*100)/100
+        if self._level == 2:
+            time += 3
+        elif self._level == 3:
+            time += 1.5
         if self._question.capital() == answer:
             self._player.add_score(time, self._sudden_death)
             return True
@@ -135,7 +141,8 @@ class GameService:
         else:
             death_tick = "no"
         self._player_repository.write_highscores(
-            self.player_name(), str(self.player_score()), self.level_to_words(), self._area, death_tick)
+            self.player_name(), str(self.player_score()),
+            self.level_to_words(), self._area, death_tick)
 
     def level_to_words(self):
         """Muuntaa pelitason sanalliseen muotoon.
@@ -162,23 +169,24 @@ class GameService:
             sudden_death (bool): Tieto pelistä, jonka pisteet halutaan listalle.
 
         Returns:
-            list: Lista, jonka rivillä on pelaajan nimimerkki, pelatun pelin vaikeustaso ja pisteet / "TYHJÄ".
+            list: Lista, jonka rivillä on pelaajan nimimerkki,
+            pelatun pelin vaikeustaso ja pisteet / "TYHJÄ".
         """
         highscores = self._player_repository.read_highscores()
-        highscores.sort()
-        highscores.reverse()
-
         score_list = []
+        if highscores is not None:
+            highscores.sort()
+            highscores.reverse()
 
-        for score in highscores:
-            if sudden_death:
-                if score[4] == "yes":
-                    score_list.append(
-                        f"{score[1]}\n{score[2]}\n {score[3]}\n{score[0]} peräkkäin")
-            else:
-                if score[4] == "no":
-                    score_list.append(
-                        f"{score[1]}\n{score[2]}\n {score[3]}\n{score[0]}")
+            for score in highscores:
+                if sudden_death:
+                    if score[4] == "yes":
+                        score_list.append(
+                            f"{score[1]}\n{score[2]}\n {score[3]}\n{score[0]} peräkkäin")
+                else:
+                    if score[4] == "no":
+                        score_list.append(
+                            f"{score[1]}\n{score[2]}\n {score[3]}\n{score[0]}")
 
         while len(score_list) < 3:
             score_list.append("TYHJÄ")
@@ -192,6 +200,7 @@ class GameService:
             scores (list): Lista, jolla on kaikki pisteet
 
         Returns:
-            str: Listan ensimmäisen eli eniten pisteitä saaneen tiedot (nimi, pelin taso, pisteet)
+            str: Listan ensimmäisen eli eniten pisteitä saaneen tiedot
+            (nimi, alue, pelin taso, pisteet)
         """
         return scores.pop(0)
