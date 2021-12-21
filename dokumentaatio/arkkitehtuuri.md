@@ -39,7 +39,7 @@ PlayerRepository-luokka huolehtii pisteiden talletuksesta CSV-tiedostoon. Molemm
 
 ## Päätoiminnallisuudet
 
-Kahdessa aloitusnäkymässä valitaan pelin reunaehdot (ensimmäisessä perustiedot ja toisessa pelitapa). Pelaajan painettua ALOITA-näppäintä siirrytään pelinäkymään.  Pelinäkymässä kutsutaan GameServiceä, jonka kautta luodaan uusi kysymys ja napin painalluksesta tarkistetaan vastaus. Palaute vastauksesta (oikein/väärin) tulee vastausvaihtoehdon klikkauksen jälkeen tekstilaatikossa näkyviin. Peruspelissä laatikon nappivahtoehtoja yes tai no klikkaamalla peli joko jatkuu tai päättyy. Pelin lopuksi pelaajan pisteet tulevat näkyviin infotekstilaatikkoon. OK klikattuaan siirrytään parhaat pisteet -näkymään ja pelaaja voi palata alkunäkymään klikkaamalla "PELAA UUDELLEEN".
+Kahdessa aloitusnäkymässä valitaan pelin reunaehdot (ensimmäisessä perustiedot ja toisessa pelitapa). Pelaajan painettua ALOITA-näppäintä siirrytään pelinäkymään. Pelinäkymässä kutsutaan GameServiceä, jonka kautta luodaan uusi kysymys: Oikea vastaus tarkistetaan napin painalluksestas. Palaute vastauksesta (oikein/väärin) tulee vastausvaihtoehdon klikkauksen jälkeen tekstilaatikossa näkyviin. Peruspelissä laatikon nappivahtoehtoja *Yes* tai *No* klikkaamalla peli joko jatkuu tai päättyy. Pelin lopuksi pelaajan pisteet tulevat näkyviin infotekstilaatikkoon. *OK*-klikkauksella siirrytään parhaat pisteet -näkymään ja pelaaja voi palata alkunäkymään *PELAA UUDELLEEN*-painikkeella
 
 Pelin aloittamisen ja yhden kysymyksen pelaamisen sovelluslogiikka:
 
@@ -47,4 +47,4 @@ Pelin aloittamisen ja yhden kysymyksen pelaamisen sovelluslogiikka:
 
 ## Ohjelman rakenteeseen jääneet heikkoudet
 
-Graafisen käyttöliittymän pelinäkymään jäi jonkin verran toisteista koodia.
+Graafisen käyttöliittymän aloitus- ja pelinäkymään jäi jonkin verran toisteista koodia.
