@@ -21,5 +21,7 @@ Päivä | Aika | Mitä tein
 13.12.|   2  | Toiminnallisuuden lisäämistä ja käyttöliittymän säätöä
 14.12.|   1  | Arkkitehtuurin ja ohjeistuksen laatimista.
 14.12.|   2  | Käyttöliittymän tiivistämistä kolmesta pelinäkymästä yhteen.
+20.12.|   7  | Viimeisten toiminnallisuuksien tekoa (toinen pistelista, jo kysyttyjä maita ei kysytä uudelleen), käyttöliittymän siistimistä, testien tekemistä
+21.12.|   3  | Pistelaskurin lisääminen pelinäkymään. Koodin hiomista ja testien tekemistä.
 
-Yhteensä 49 tuntia
+Yhteensä 59 tuntia

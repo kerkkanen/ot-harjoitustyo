@@ -190,7 +190,7 @@ class StartView:
 
         all = tk.Radiobutton(
             master=self._frame,
-            text="Kaikki",
+            text="Koko maailma",
             variable=self._area_var,
             value="Maailma",
             width=25,

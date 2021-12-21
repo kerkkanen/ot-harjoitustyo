@@ -2,6 +2,19 @@
 
 Lataa projektin viimeisimmän releasen lähdekoodi valitsemalla *Assets*-osion alta *Source code*.
 
+## Konfigurointi
+
+Tallennukseen käytettävä pistetilastotiedoston on olemassa, mutta sen voi halutessaan konfiguroida .env-tiedostossa. Jos tiedostoa ei pisteitä kutsuttaessa ole olemassa, se luodaan automaattisesti *data*-hakemistoon. Tiedosto on muodossa:
+
+```
+SCORE_FILENAME=highscores.csv
+```
+Myös maalistauksen voi samoin konfiguroida itse, mutta listauksesta täytyy löytyä oikeat tiedot oikeassa järjestyksessä (maa,pääkaupunki,maanosa), jotta pelilogiikka toimii oikein. Maalista löytyy myös *data*-hakemistosta. Tiedostomuoto:
+
+```
+COUNTRIES_FILENAME=country_list_all_csv
+```
+
 ## Ohjelman käynnistäminen
 
 Ennen ohjelman käynnistämistä, asenna riippuvuudet komennolla:
@@ -10,7 +23,7 @@ Ennen ohjelman käynnistämistä, asenna riippuvuudet komennolla:
 poetry install
 ```
 
-Nyt ohjelman voi käynnistää komennolla:
+Riippuvuuksien asentamisen jälkeen ohjelman voi käynnistää komennolla:
 
 ```
 poetry run invoke start
@@ -18,26 +31,40 @@ poetry run invoke start
 
 ## Pelin aloittaminen
 
-Sovellus käynnistää aloitusnäkymään: (KUVA TULOSSA, KUN UI LOPULLISESSA MUODOSSAAN)
+Sovellus käynnistää aloitusnäkymään:
 
-Peli on mahdollista aloittaa oletusarvoilla (nimimerkki Pelaaja 1 ja vaikeustaso 3, koko maailma), mutta pelaaja voi valita oman nimimerkin, vaikeustason ja alueen, jolta kysymykset tulevat. Vaikeustasojen erona on vastausvaihtoehtojen määrä sekä pisteytys: tason kasvaessa pisteitä voi saada enemmän.
+![Aloitusnäkymä](Kuvat/start.png)
+
+Peli on mahdollista aloittaa oletusarvoilla (nimimerkki Maailmanmatkaaja, vaikeustaso 3, koko maailma), mutta pelaaja voi valita oman nimimerkin, vaikeustason ja alueen, jolta kysymykset tulevat. Vaikeustasojen erona on vastausvaihtoehtojen määrä sekä pisteytys: tason kasvaessa pisteitä voi saada enemmän.
 
 ## Pelivalintojen vahvistaminen
 
-Aloitusnäkymästä siirrytään pelivalintojen vahvistamiseen. Peli näyttää valitut peliasetukset ja nimimerkin: (KUVA TULOSSA MYÖHEMMIN)
+Aloitusnäkymästä siirrytään pelivalintojen vahvistamiseen. Peli näyttää valitut peliasetukset ja nimimerkin:
 
-Pelissä on valittavana kaksi pelimoodia: äkkikuolema, jossa peli päättyy väärästä vastauksesta, tai kymmenen kierroksen peruspeli. Pelin voi valita painamalla kyseisen moodin aloitusnappia.Vaihtoehtona on myös palata näkymään.
+![Pelin aloittaminen](Kuvat/ready.png)
+
+Pelissä on valittavana kaksi pelimoodia: äkkikuolema, jossa peli päättyy väärästä vastauksesta, tai kymmenen kierroksen peruspeli. Pelin voi valita painamalla kyseisen moodin aloitusnappia. Vaihtoehtona on myös palata aloitusnäkymään.
 
 ## Pelin pelaaminen
 
-Pelin alkaessa näkyviin tulee valitun tason mukainen pelinäkymä: (KUVA TULOSSA MYÖHEMMIN)
+Pelin alkaessa näkyviin tulee valitun tason mukainen pelinäkymä:
 
-Peruspelissä pelataan kymmenen kierrosta, ellei pelaaja valitse pelin lopettamista aiemmin. Viimeisen kysymyksen vastauksen (tai äkkikuolemassa väärän vastauksen) jälkeen peli päättyy: (KUVA TULOSSA MYÖHEMMIN)
+![Normaali-vaikeustason peli](Kuvat/game.png)
 
- OK-painiketta painamalla sovellus siirtyy pistenäkymään.
+Peruspelissä pelataan kymmenen kierrosta, ellei pelaaja valitse pelin lopettamista aiemmin. Vastauksen klikkaamisen jälkeen näkyviin tulee kysymyslaatikko, jossa on palaute vastauksesta. Peliä voi jatkaa valitsemalla "yes" tai lopettaa kesken valitsemalla "no".
+
+![Oikea vastaus](Kuvat/correct.png)
+
+Viimeisen kysymyksen vastauksen (tai äkkikuolemassa väärän vastauksen) jälkeen peli päättyy:
+
+![Väärä vastaus peruspelissä](Kuvat/incorrect.png)   ![Väärä vastaus äkkikuolemassa](Kuvat/sudden_death.png)
+
+ OK-painiketta painamalla sovellus siirtyy pistetailstonäkymään.
 
 ## Pistetilasto
 
-Näkyvillä on kolmen parhaan pelaajan pelin tiedot ja pisteet: (KUVA TULOSSA MYÖHEMMIN)
+Näkyvillä on pistelista molemmista pelimuodoista, ja listoilla on kolmen parhaan pelaajan pelin tiedot ja pisteet:
+
+![Top 3 -pisteet](Kuvat/highscores.png)
 
 Pelin voi pelata uudelleen klikkaamalla "PELAA UUDELLEEN" -painiketta.

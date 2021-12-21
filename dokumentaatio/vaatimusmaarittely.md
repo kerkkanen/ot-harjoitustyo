@@ -2,7 +2,7 @@
 
 ## Sovelluksen tarkoitus
 
-Sovellus on peli, jonka avulla voidaan harjoitella maailman maiden pääkaupunkeja.
+Sovellus on peli, jossa pelaajan täytyy yhdistää oikea pääkaupunki kysyttyyn maahan.
 
 ## Käyttäjät
 
@@ -10,11 +10,13 @@ Sovelluksella on ainoastaan yksi käyttäjärooli eli *normaali käyttäjä*.
 
 ## Käyttöliittymäluonnos
 
-Sovellus koostuu kolmesta eri näkymästä.
+Sovellus koostuu neljästä eri näkymästä:
 
-![Pelin näkymä](nakyma.png)
+![Pelin näkymä](Kuvat/nakymat.png)
 
-Pelin alkunäkymässä syötetään pelaajan nimimerkki ja valitaan vaikeustaso. Pelinäkymässä näkyviin tulee maa ja vastausvaihtoehdot. Pelin päätyttyä näkyviin tulee pistetilasto.
+* Alkunäkymässä syötetään nimimerkki ja valitaan vaikeustaso sekä pelattava alue.
+*  Pelinäkymässä näkyviin tulee maa, vastausvaihtoehdot ja pisteet.
+*  Pelin päätyttyä näkyviin tulee pistetilastosivu.
 
 
 ## Toiminnallisuus
@@ -23,17 +25,27 @@ Pelin alkunäkymässä syötetään pelaajan nimimerkki ja valitaan vaikeustaso.
 ### Sovelluksen käynnistyessä
 
 * Pelaaja syöttää nimimerkin ja valitsee vaikeustason "tehty"
-    * nimimerkin on oltava vähintään yhden merkin pituinen "tehty niin, että jos nimeä ei syötetä, pelataan oletusnimellä 'Pelaaja 1'"
-    * ainakin pelin ensimmäisessä versiossa vaikeustasovalinta säätelee vastausvaihtoehtojen määrää "tehty"
+    * nimimerkin on oltava vähintään yhden merkin pituinen. Jos nimeä ei syötetä, pelataan oletusnimellä "Maailmanmatkaaja"
+    * Pelin taso säätelee vastausvaihtoehtojen määrää (kaksi, kolme, tai kuusi vaihoehtoa).
+    * Pelialueeksi, eli miltä alueelta maat valitaan, voidaan valita eri maanosa tai koko maailma.
 
-* Pelinäkymässä näkyviin tulee maa, jonka pääkaupunkia kysytään "tehty"
-    * pelaaja klikkaa mielestään oikeaa vaihtoehtoa "tehty"
-    * oikeasta vastauksesta saa pisteitä "tehty"
-    * pelin ensimmäisessä versiossa peli päättyy väärästä vastauksesta "tehty"
+* Seuraavassa näkymässä varmistetaan tehdyt pelivalinnat ja valitaan pelitapa:
+    * "Kerrasta poikki" käynnistää pelin, jossa tulee uusi kysymys, kunnes pelaaja vastaa väärin tai valitun alueen kaikki maat on kysytty.
+    * "Turvallisesti loppuun" käynnistää pelin, jossa pelataan kymmenen kysymystä.
+    * valintoja voi myös palata muuttamaan alkunäkymään
 
-* Pelin päätyttyä näkyviin tulee pistetilasto "tehty"
-    * listaus näyttää kolme parasta pelaajaa pisteineen "tehty"
-    * pelin voi sulkea tai pelata uudestaan "tehty"
+* Pelinäkymässä näkyviin tulee maa, jonka pääkaupunkia kysytään:
+    * pelaaja valitsee vaihtoehdon klikkaamalla sitä
+    * klikkauksen jälkeen näkyviin tulee vastauslaatikko, joka kertoo oliko vastaus oikein
+    * peliä voi jatkaa valitsemalla "yes" tai lopettaa kesken valitsemalla "no"
+    * pelin päättyessä näkyviin tulee infolaatikko, joka kertoo pisteet
+    * pisteet päivittyvät näkyviin vastauslaatikon klikkauksen jälkeen
+    * 10 kierroksen pelissä pisteet määräytyvät vaikeustason ja ajan mukaan
+    * äkkikuolemassa jokaisesta oikeasta vastauksesta saa pisteen
+
+* Pelin päätyttyä näkyviin tulee pistetilasto:
+    * kaksi eri listaa näyttävät kolme parasta pelaajaa molemmista pelitavoista
+    * pelin voi sulkea tai pelata uudestaan
 
 
 ## Jatkokehitysideoita
@@ -41,11 +53,11 @@ Pelin alkunäkymässä syötetään pelaajan nimimerkki ja valitaan vaikeustaso.
 * Vaikeustason variantit
     * peli ei tarjoa vastausvaihtoehtoja, vaan käyttäjän täytyy kirjoittaa pääkaupunki itse
 * Ajan kuluminen
-    * jos pelaaja ei vastaa kuluvan ajan puitteissa, peli päättyy "tehty niin, että aika vaikuttaa pisteisiin"
+    * jos pelaaja ei vastaa kuluvan ajan puitteissa, peli päättyy
 * Elämät
-    * pelaajalla on kolme elämää, joista väärä vastaus vähentää yhden
-    * peli päättyy, kun kaikki elämät on käytetty
-* Skippaa-toiminto
-    * pelaaja voi hypätä maan yli kerran skippaustoiminnolla ilman että peli päättyy/menettää elämän
+    * pelaajalla on äkkikuolema-pelissä kolme elämää, joista väärä vastaus vähentää yhden
+    * peli päättyy vasta, kun kaikki elämät on käytetty
+* Ohita-toiminto
+    * pelaaja voi hypätä maan yli kerran ilman että peli päättyy/menettää elämän
 * Alueiden valinta
-    * kysyttäviä maita voi rajata esim. maanosan mukaan "tehty"
+    * kysyttävän alueen voi koostaa useammasta maanosasta

@@ -1,3 +1,4 @@
+from pathlib import Path
 import os
 from config import SCORE_FILE_PATH
 
@@ -23,6 +24,8 @@ class PlayerRepository:
         """
         highscores = []
 
+        self._file_exists()
+
         with open(self._file_path, encoding="utf8") as file:
 
             if os.stat(self._file_path).st_size == 0:
@@ -46,10 +49,17 @@ class PlayerRepository:
             level (str): Pelin vaikeustaso
             sudden_death (str): Tieto pelin tyypistä
         """
+        self._file_exists()
+
         with open(self._file_path, "a", encoding="utf8") as file:
             file.writelines(f"{score},{name},{level},{area},{sudden_death}\n")
 
+    def _file_exists(self):
+        Path(self._file_path).touch()
+
     def delete_all(self):
+        """Poistaa kaikki tiedot tiedostosta.
+        """
         with open(self._file_path, "w", encoding="utf8") as file:
             pass
 
