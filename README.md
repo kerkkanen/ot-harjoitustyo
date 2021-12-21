@@ -4,7 +4,7 @@ Pääkaupunkipeli, jossa pelaajan on yhdistettävä oikea pääkaupunki kysyttyy
 
 ## Releaset
 
-* [Loppupalautus]()
+* [Loppupalautus](https://github.com/kerkkanen/ot-harjoitustyo/releases/tag/loppupalautus)
 * [Toinen release](https://github.com/kerkkanen/ot-harjoitustyo/releases/tag/viikko6)
 * [Ensimmäinen release](https://github.com/kerkkanen/ot-harjoitustyo/releases/tag/viikko5)
 
