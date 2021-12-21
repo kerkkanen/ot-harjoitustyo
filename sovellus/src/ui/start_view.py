@@ -117,6 +117,7 @@ class StartView:
             variable=self._rounds_var,
             value=20,
             height=2,
+            background="#000fff000",
             foreground="black",
             command=self._select_rounds
         )
