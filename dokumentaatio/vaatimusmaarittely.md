@@ -12,7 +12,7 @@ Sovelluksella on ainoastaan yksi käyttäjärooli eli *normaali käyttäjä*.
 
 Sovellus koostuu neljästä eri näkymästä:
 
-![Pelin näkymä](Kuvat/views.png)
+![Pelin näkymä](Kuvat/all_views.png)
 
 * Alkunäkymässä syötetään nimimerkki ja valitaan vaikeustaso sekä pelattava alue. Alkunäkymästä voi siirtyä myös pistetilastoihin.
 *  Pelinäkymässä näkyviin tulee maa, vastausvaihtoehdot ja pisteet.
