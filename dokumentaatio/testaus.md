@@ -10,9 +10,9 @@ Molemmissa testiluokissa alustetaan GameService kahdesti eri pelityypeillä. Tes
 
 ### Testikattiavuus
 
-Testikattavuus on 93 %. Mukana ei ole käyttöliittymäluokkien testausta.
+Testikattavuus on 92 %. Mukana ei ole käyttöliittymäluokkien testausta.
 
-![Coverage report](Kuvat/coverage-report.png)
+![Coverage report](Kuat/coverage-report.png)
 
 ## Järjestelmätestaus
 
