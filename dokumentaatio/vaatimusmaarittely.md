@@ -30,8 +30,8 @@ Sovellus koostuu neljästä eri näkymästä:
     * Pelialueeksi, eli miltä alueelta maat valitaan, voidaan valita eri maanosa tai koko maailma.
 
 * Seuraavassa näkymässä varmistetaan tehdyt pelivalinnat ja valitaan pelitapa:
-    * "Kerrasta poikki" käynnistää pelin, jossa tulee uusi kysymys, kunnes pelaaja vastaa väärin tai valitun alueen kaikki maat on kysytty.
-    * "Turvallisesti loppuun" käynnistää pelin, jossa pelataan kymmenen kysymystä.
+    * *Kerrasta poikki* käynnistää pelin, jossa tulee uusi kysymys, kunnes pelaaja vastaa väärin tai valitun alueen kaikki maat on kysytty.
+    * *Turvallisesti loppuun* käynnistää pelin, jossa pelataan kymmenen kysymystä.
     * valintoja voi myös palata muuttamaan alkunäkymään
 
 * Pelinäkymässä näkyviin tulee maa, jonka pääkaupunkia kysytään:

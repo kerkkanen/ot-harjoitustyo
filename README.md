@@ -1,11 +1,12 @@
 # Pääkaupunkipeli
 
-Pääkaupunkitietovisa, jossa voi harjoitella eri mantereiden tai koko maailman maiden pääkaupunkeja kahden pelimoodin avulla.
+Pääkaupunkipeli, jossa pelaajan on yhdistettävä oikea pääkaupunki kysyttyyn maahan. Pelissä on kolme vaikeustasoa ja kaksi erilaista pelimahdollisuutta. Pelialueeksi on mahdollista valita yksittäinen manner tai kaikki maailman maat.
 
 ## Releaset
 
-* [Ensimmäinen release](https://github.com/kerkkanen/ot-harjoitustyo/releases/tag/viikko5)
+* [Loppupalautus]()
 * [Toinen release](https://github.com/kerkkanen/ot-harjoitustyo/releases/tag/viikko6)
+* [Ensimmäinen release](https://github.com/kerkkanen/ot-harjoitustyo/releases/tag/viikko5)
 
 ## Dokumentaatio
 
@@ -16,7 +17,7 @@ Pääkaupunkitietovisa, jossa voi harjoitella eri mantereiden tai koko maailman 
 
 ## Asennus
 
-1. Aseta riippuvuudet sovellus-kansiossa komennolla:
+Aseta riippuvuudet sovellus-kansiossa komennolla:
 
 ```
 poetry install
@@ -31,7 +32,6 @@ Ohjelman pystyy suorittamaan komennolla:
 ```
 poetry run invoke start
 ```
-Sovelluksessa on graafinen käyttöliittymä, joka tällä hetkellä ei tosin sulkeudu aina täysin oikein...
 
 ### Testaus
 
