@@ -31,7 +31,7 @@ poetry run invoke start
 
 ## Pelin aloittaminen
 
-Sovellus käynnistää aloitusnäkymään:
+Sovellus käynnistää aloitusnäkymän:
 
 ![Aloitusnäkymä](Kuvat/start.png)
 
@@ -51,7 +51,7 @@ Pelin alkaessa näkyviin tulee valitun tason mukainen pelinäkymä:
 
 ![Normaali-vaikeustason peli](Kuvat/game.png)
 
-Peruspelissä pelataan kymmenen kierrosta, ellei pelaaja valitse pelin lopettamista aiemmin. Vastauksen klikkaamisen jälkeen näkyviin tulee kysymyslaatikko, jossa on palaute vastauksesta. Peliä voi jatkaa valitsemalla "yes" tai lopettaa kesken valitsemalla "no".
+Peruspelissä pelataan kymmenen kierrosta, ellei pelaaja valitse pelin lopettamista aiemmin. Vastauksen klikkaamisen jälkeen näkyviin tulee kysymyslaatikko, jossa on palaute vastauksesta. Peliä voi jatkaa valitsemalla "Yes" tai lopettaa kesken valitsemalla "No".
 
 ![Oikea vastaus](Kuvat/correct.png)
 
@@ -59,11 +59,11 @@ Viimeisen kysymyksen vastauksen (tai äkkikuolemassa väärän vastauksen) jälk
 
 ![Väärä vastaus peruspelissä](Kuvat/incorrect.png)   ![Väärä vastaus äkkikuolemassa](Kuvat/sudden_death.png)
 
- OK-painiketta painamalla sovellus siirtyy pistetailstonäkymään.
+ OK-painiketta painamalla sovellus siirtyy pistetilastonäkymään.
 
 ## Pistetilasto
 
-Näkyvillä on pistelista molemmista pelimuodoista, ja listoilla on kolmen parhaan pelaajan pelin tiedot ja pisteet:
+Näkyvillä on pistelista molemmista pelimuodoista, ja listoilla on kolmen parhaan pelaajan pelin tiedot:
 
 ![Top 3 -pisteet](Kuvat/highscores.png)
 
