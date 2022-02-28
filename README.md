@@ -1,3 +1,5 @@
+*Sovellus on tehty Helsingin yliopiston aineopintojen TKT20002 Ohjelmistotekniikka -kurssin harjoitustyönä.*
+
 # Pääkaupunkipeli
 
 Pääkaupunkipeli, jossa pelaajan on yhdistettävä oikea pääkaupunki kysyttyyn maahan. Pelissä on kolme vaikeustasoa ja kaksi erilaista pelimahdollisuutta. Pelialueeksi on mahdollista valita yksittäinen manner tai kaikki maailman maat.
